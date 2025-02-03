@@ -13,7 +13,7 @@ function FormViagem() {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [veiculos, setVeiculos] = useState<Veiculo[]>([])
 
-    const [veiculo, setVeiculo] = useState<Veiculo>({ id: 0, descricao: '', })
+    const [veiculo, setVeiculo] = useState<Veiculo>()
     const [viagem, setViagem] = useState<Viagem>({} as Viagem)
 
     const { id } = useParams<{ id: string }>()
@@ -33,17 +33,6 @@ function FormViagem() {
         }
     }
 
-    async function buscarVeiculoPorId(id: string) {
-        try {
-            await buscar(`/veiculos/${id}`, setVeiculo, {
-                headers: { Authorization: token }
-            })
-        } catch (error: any) {
-            if (error.toString().includes('403')) {
-                handleLogout()
-            }
-        }
-    }
 
     async function buscarVeiculos() {
         try {
@@ -79,13 +68,25 @@ function FormViagem() {
         })
     }, [veiculo])
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-        setViagem({
-            ...viagem,
-            [e.target.name]: e.target.value,
-            veiculo: veiculo,
-            usuario: usuario,
-        });
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+        const { name, value } = e.target;
+ 
+        if (name === 'veiculo') {
+            setViagem({
+                ...viagem,
+                veiculo: {
+                    id: parseInt(value),
+                    modelo: "",
+                    marca: "",
+                    placa: ""
+                },
+            });
+        } else {
+            setViagem({
+                ...viagem,
+                [name]: value,
+            });
+        }
     }
 
     function retornar() {
@@ -137,73 +138,98 @@ function FormViagem() {
         retornar()
     }
 
-    const carregandoVeiculo = veiculo.descricao === '';
-
     return (
-        <div className="container flex flex-col mx-auto items-center">
-            <h1 className="text-4xl text-center my-8">
-                {id !== undefined ? 'Editar Viagem' : 'Cadastrar Viagem'}
-            </h1>
+        <>
+            <div className="flex flex-col items-center justify-center bg-gray-100" >
+                <div className="border-slate-900 border rounded-lg overflow-hidden shadow-lg bg-white w-full max-w-2xl">
+                    <div className="flex items-center justify-between bg-orange-400 py-4 px-6">
+                        <h3 className="text-xl font-bold text-white uppercase">
+                            {id ? 'Editar Viagem' : 'Cadastrar Viagem'}
+                        </h3>
+                    </div>
+                    <form className="p-6 flex flex-col gap-4" onSubmit={gerarNovaViagem}>
+                        <div>
+                            <label className="block text-gray-700 font-semibold mb-2">Ponto de partida da viagem</label>
+                            <input
+                                type="text"
+                                name="origem"
+                                placeholder="Digite o ponto de partida da viagem"
+                                value={viagem.origem || ''}
+                                onChange={atualizarEstado}
+                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                required
+                            />
 
-            <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaViagem}>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="titulo">Título da Viagem</label>
-                    <input
-                        type="text"
-                        placeholder="Titulo"
-                        name="titulo"
-                        required
-                        className="border-2 border-slate-700 rounded p-2"
-                       
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
+                            <label className="block text-gray-700 font-semibold mb-2">Destino da viagem</label>
+                            <input
+                                type="text"
+                                name="destino"
+                                placeholder="Digite o destino da viagem"
+                                value={viagem.destino || ''}
+                                onChange={atualizarEstado}
+                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                required
+                            />
+                            <label className="block text-gray-700 font-semibold mb-2">Distancia da viagem</label>
+                            <input
+                                type="text"
+                                name="distancia"
+                                placeholder="Digite a distancia da viagem"
+                                value={viagem.distancia || ''}
+                                onChange={atualizarEstado}
+                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                required
+                            />
+                            
+                            <label className="block text-gray-700 font-semibold mb-2">Preço</label>
+                            <input
+                                type="number"
+                                name="preco"
+                                placeholder="Digite o preço"
+                                value={viagem.preco || ''}
+                                onChange={(e) =>
+                                    setViagem({ ...viagem, preco: parseFloat(e.target.value) })
+                                }
+                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-gray-700 font-semibold mb-2">Veiculo</label>
+                            <select
+                                name="veiculo"
+                                value={viagem.veiculo?.id.toString() || ''}
+                                onChange={atualizarEstado}
+                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                required
+                            >
+                                <option value="" disabled>Selecione um Veiculo</option>
+                                {veiculos.map((veiculo) => (
+                                    <option key={veiculo.id} value={veiculo.id.toString()}>
+                                        {veiculo.modelo}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="flex gap-4 mt-4">
+                            <button
+                                type="button"
+                                onClick={() => navigate('/viagens')}
+                                className="w-1/2 bg-red-500 hover:bg-red-700 text-white py-2 rounded font-bold transition duration-300"
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                type="submit"
+                                className="w-1/2 bg-orange-500 hover:bg-orange-700 text-white py-2 rounded font-bold transition duration-300"
+                            >
+                                {id ? 'Atualizar' : 'Cadastrar'}
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="titulo">Texto da Viagem</label>
-                    <input
-                        type="text"
-                        placeholder="Texto"
-                        name="texto"
-                        required
-                        className="border-2 border-slate-700 rounded p-2"
-                    
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
-                </div>
-                <div className="flex flex-col gap-2">
-                    <p>Veículo da Viagem</p>
-                    <select name="veiculo" id="veiculo" className='border p-2 border-slate-800 rounded'
-                        onChange={(e) => buscarVeiculoPorId(e.currentTarget.value)}
-                    >
-                        <option value="" selected disabled>Selecione um Veículo</option>
-
-                        {veiculos.map((veiculo) => (
-                            <>
-                                <option value={veiculo.id} >{veiculo.descricao}</option>
-                            </>
-                        ))}
-
-                    </select>
-                </div>
-                <button
-                    type='submit'
-                    className='rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800
-                               text-white font-bold w-1/2 mx-auto py-2 flex justify-center'
-                    disabled={carregandoVeiculo}
-                >
-                    {isLoading ?
-                        <RotatingLines
-                            strokeColor="white"
-                            strokeWidth="5"
-                            animationDuration="0.75"
-                            width="24"
-                            visible={true}
-                        /> :
-                        <span>{id !== undefined ? 'Atualizar' : 'Cadastrar'}</span>
-                    }
-                </button>
-            </form>
-        </div>
+            </div>
+        </>
     );
 }
 

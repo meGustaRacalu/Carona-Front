@@ -21,13 +21,13 @@ function CardViagem({ viagem }: CardViagensProps) {
                     </h3>
                 </div>
                 <div className='p-4 '>
-                    <h4 className='text-lg font-semibold uppercase'>{viagem.titulo}</h4>
-                    <p>{viagem.texto}</p>
-                    <p>Tema: {viagem.tema?.descricao}</p>
-                    <p>Data: {new Intl.DateTimeFormat(undefined, {
+                    <h4 className='text-lg font-semibold uppercase'>{viagem.destino}</h4>
+                    <p>Preço: {viagem.preco}</p>
+                    <p>Veiculo: {viagem.veiculo?.modelo} {viagem.veiculo?.marca}</p>
+                    <p>Partida em: {new Intl.DateTimeFormat(undefined, {
                         dateStyle: 'full',
                         timeStyle: 'medium',
-                    }).format(new Date(viagem.data))}</p>
+                    }).format(new Date(viagem.dataHoraPartida))}</p>
                 </div>
             </div>
             <div className="flex">
