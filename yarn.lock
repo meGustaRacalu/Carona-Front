@@ -1798,7 +1798,7 @@ react-router@7.1.5:
 
 react-toastify@^11.0.3:
   version "11.0.3"
-  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-11.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-11.0.3.tgz#1684de60baf745e761d3c608bb29581657e2fe01"
   integrity sha512-cbPtHJPfc0sGqVwozBwaTrTu1ogB9+BLLjd4dDXd863qYLj7DGrQ2sg5RAChjFUB4yc3w8iXOtWcJqPK/6xqRQ==
   dependencies:
     clsx "^2.1.1"
@@ -1812,7 +1812,7 @@ react@^18.3.1:
 
 reactjs-popup@^2.0.6:
   version "2.0.6"
-  resolved "https://registry.npmjs.org/reactjs-popup/-/reactjs-popup-2.0.6.tgz"
+  resolved "https://registry.yarnpkg.com/reactjs-popup/-/reactjs-popup-2.0.6.tgz#ff0e340e31d03785ae62f6b6cf62de1ef48c9605"
   integrity sha512-A+tt+x9wdgZiZjv0e2WzYLD3IfFwJALaRaqwrCSXGjo0iQdsry/EtBEbQXRSmQs7cHmOi5eytCiSlOm8k4C+dg==
 
 resolve-from@^4.0.0:
