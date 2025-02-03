@@ -14,7 +14,7 @@ function Navbar() {
         alert('O Usuário foi desconectado com sucesso!')
         navigate('/')
     }
-    
+
     return (
         <>
             <div className='w-full bg-blue-800 text-white
@@ -25,7 +25,8 @@ function Navbar() {
 
                     <div className='flex gap-4'>
                         Viagens
-                        Veiculos
+                        <Link to='/veiculos' className='hover:underline'>Veiculos</Link>
+                        <Link to='/cadastrarveiculo' className='hover:underline'>Cadastrar veiculo</Link>
                         Perfil
                         <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
                     </div>
