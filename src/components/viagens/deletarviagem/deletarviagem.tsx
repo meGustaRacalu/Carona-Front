@@ -85,9 +85,14 @@ function DeletarViagem() {
                     className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
                     Viagem
                 </header>
-                <div className="p-4">
-                    <p className='text-xl h-full'>{viagem.titulo}</p>
-                    <p>{viagem.texto}</p>
+                <div className='p-4 '>
+                    <h4 className='text-lg font-semibold uppercase'>{viagem.destino}</h4>
+                    <p>Preço: {viagem.preco}</p>
+                    <p>Veiculo: {viagem.veiculo?.modelo} {viagem.veiculo?.marca}</p>
+                    <p>Partida em: {new Intl.DateTimeFormat(undefined, {
+                        dateStyle: 'full',
+                        timeStyle: 'medium', 
+                    }).format(new Date(viagem.dataHoraPartida))}</p>
                 </div>
                 <div className="flex">
                     <button 

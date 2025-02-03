@@ -1,4 +1,4 @@
-import React from 'react';
+//import './Home.css';
 
 function Home() {
   return (
@@ -11,13 +11,14 @@ function Home() {
         backgroundRepeat: 'no-repeat' 
       }}
     >
-      <div className="text-center text-white">
+      <div className="flex justify-center items-center w-full"> 
         <img 
           src="https://imgur.com/OiHVAke.png" 
           alt="Logo pet ride" 
-          width="150px" 
+          width="200px" 
+          className="ml-90" 
         />
-        <h3 className="mt-4">Seu pet merece estar ao seu lado <br />aonde você for</h3>
+        <h2 className="text-center">Seu pet merece estar ao seu lado <br />aonde você for</h2>
       </div>
     </div>
   );
