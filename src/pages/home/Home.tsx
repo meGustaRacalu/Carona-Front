@@ -1,7 +1,9 @@
 function Home() {
     return (
         <>
-            <div style={{ backgroundColor: '#00557f' }}>
+            <div
+                className="flex-grow justify-center"
+                style={{ backgroundColor: '#00557f' }}>
                 <div style={{
                     width: "100vw",
                     display: "flex",
@@ -10,7 +12,7 @@ function Home() {
                     <div style={{
                         width: "80vw",
                         display: "flex",
-                        flexDirection: "row", 
+                        flexDirection: "row",
                         alignItems: "center"
                     }}>
                         <div style={{

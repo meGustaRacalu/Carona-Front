@@ -56,7 +56,7 @@ function ListaViagens() {
             <div className='container mx-auto my-4 
                 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
             >
-                {viagens.map((viagem) => (
+                {viagens.map(viagem => (
                     <CardViagens key={viagem.id} viagem={viagem} />
                 ))}
 
