@@ -97,13 +97,31 @@ function FormVeiculo() {
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoVeiculo}>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="descricao">Descrição do Veiculo</label>
+                    <label htmlFor="modelo">Modelo do Veiculo</label>
                     <input
                         type="text"
-                        placeholder="Descreva aqui seu veiculo"
-                        name='descricao'
+                        placeholder="Diga o modelo do seu veiculo"
+                        name='modelo'
                         className="border-2 border-slate-700 rounded p-2"
-                        value={veiculo.descricao}
+                        value={veiculo.modelo}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                    <label htmlFor="marca">Marca do Veiculo</label>
+                    <input
+                        type="text"
+                        placeholder="Diga a marca do seu veiculo"
+                        name='marca'
+                        className="border-2 border-slate-700 rounded p-2"
+                        value={veiculo.marca}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                    <label htmlFor="placa">Placa do Veiculo</label>
+                    <input
+                        type="text"
+                        placeholder="Diga a placa do seu veiculo"
+                        name='placa'
+                        className="border-2 border-slate-700 rounded p-2"
+                        value={veiculo.placa}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>

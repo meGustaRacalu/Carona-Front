@@ -6,5 +6,5 @@ export default interface Usuario {
   usuario: string;
   foto: string;
   senha: string;
-  viagem?: Viagem | null;
+  viagem?: Viagem[] | null;
 }

@@ -1,8 +1,10 @@
 import Viagem from "./viagem";
 
 
-export default interface viagem {
-    descricao: ReactNode;
+export default interface veiculo {
     id: number;
+    modelo: string;
+    marca: string;
+    placa: string;
     viagem?: Viagem | null;
 }
