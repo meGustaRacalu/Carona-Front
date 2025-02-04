@@ -165,7 +165,7 @@ function FormVeiculo() {
                         value={veiculo.placa}
                         onChange={(e) => atualizarEstado(e)}
                     />
-                    <label htmlFor="velocidadeMedia" className="text-[#00557f]">Velocidade Média do Veículo {"(km/h)"}</label>
+                    <label htmlFor="velocidadeMedia" className="text-[#00557f]">Velocidade Média do Veículo (km/h)</label>
                     <input
                         type="text"
                         id="velocidadeMedia"

@@ -68,6 +68,8 @@ function CardVeiculos({ veiculo }: CardVeiculosProps) {
                 <p className="text-xl border-b border-[#b1bf63] pb-2">Modelo: {veiculo.modelo}</p>
                 <p className="text-xl border-b border-[#b1bf63] pb-2">Marca: {veiculo.marca}</p>
                 <p className="text-xl">Placa: {veiculo.placa}</p>
+                <p className="text-xl">Velocidade Média (km/h): {veiculo.velocidadeMedia}</p>
+
             </div>
             <div className="flex justify-around w-full gap-2 p-4">
                 <Link
