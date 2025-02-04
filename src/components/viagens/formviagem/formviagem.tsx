@@ -55,9 +55,9 @@ function FormViagem() {
 
     useEffect(() => {
         buscarVeiculos()
-
         if (id !== undefined) {
             buscarViagemPorId(id)
+
         }
     }, [id])
 
@@ -65,6 +65,7 @@ function FormViagem() {
         setViagem({
             ...viagem,
             veiculo: veiculo,
+            usuario: usuario
         })
     }, [veiculo])
 
@@ -80,6 +81,12 @@ function FormViagem() {
                     marca: "",
                     placa: ""
                 },
+            });
+            setVeiculo({...veiculo,
+                id: parseInt(value),
+                modelo: "",
+                marca: "",
+                placa: ""
             });
         } else {
             setViagem({
@@ -97,6 +104,19 @@ function FormViagem() {
         e.preventDefault()
         setIsLoading(true)
 
+        console.log(usuario.id)
+
+        setViagem({
+            ...viagem, 
+            usuario: {
+            id: usuario.id,
+            nome: "",
+            usuario: "",
+            foto: "",
+            senha: ""
+            }
+        })
+
         if (id !== undefined) {
             try {
                 await atualizar(`/viagens`, viagem, setViagem, {
@@ -104,7 +124,6 @@ function FormViagem() {
                         Authorization: token,
                     },
                 });
-
                 alert('Viagem atualizada com sucesso')
 
             } catch (error: any) {
@@ -189,6 +208,19 @@ function FormViagem() {
                                 value={viagem.preco || ''}
                                 onChange={(e) =>
                                     setViagem({ ...viagem, preco: parseFloat(e.target.value) })
+                                }
+                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                required
+                            />
+
+                            <label className="block text-gray-700 font-semibold mb-2">Data e Hora de Partida</label>
+                            <input
+                                type="datetime-local"
+                                name="dataHoraPartida"
+                                placeholder="Digite a Data"
+                                value={viagem.dataHoraPartida?.toString() || ''}
+                                onChange={(e) =>
+                                    setViagem({ ...viagem, dataHoraPartida:e.target.value })
                                 }
                                 className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
                                 required

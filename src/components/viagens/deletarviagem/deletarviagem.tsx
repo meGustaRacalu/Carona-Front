@@ -89,10 +89,7 @@ function DeletarViagem() {
                     <h4 className='text-lg font-semibold uppercase'>{viagem.destino}</h4>
                     <p>Preço: {viagem.preco}</p>
                     <p>Veiculo: {viagem.veiculo?.modelo} {viagem.veiculo?.marca}</p>
-                    <p>Partida em: {new Intl.DateTimeFormat(undefined, {
-                        dateStyle: 'full',
-                        timeStyle: 'medium', 
-                    }).format(new Date(viagem.dataHoraPartida))}</p>
+                    <p>Partida em: {viagem.dataHoraPartida?.toString()}</p>
                 </div>
                 <div className="flex">
                     <button 

@@ -17,11 +17,11 @@ function CardViagem({ viagem }: CardViagensProps) {
                         className='h-12 rounded-full'
                         alt={viagem.usuario?.nome} />
                     <h3 className='text-lg font-bold text-center uppercase'>
-                        {viagem.usuario?.nome}
+                        {viagem?.destino}   
                     </h3>
                 </div>
                 <div className='p-4 '>
-                    <h4 className='text-lg font-semibold uppercase'>{viagem.destino}</h4>
+                    <h4 className='text-lg font-semibold uppercase'>{viagem.usuario?.nome}</h4>
                     <p>Preço: {viagem.preco}</p>
                     <p>Veiculo: {viagem.veiculo?.modelo} {viagem.veiculo?.marca}</p>
                     <p>Partida em: {new Intl.DateTimeFormat(undefined, {
