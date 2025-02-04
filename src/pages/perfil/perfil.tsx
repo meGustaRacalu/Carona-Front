@@ -10,9 +10,10 @@ function Perfil() {
     useEffect(() => {
         if (usuario.token === "") {
             alert('Você precisa estar logado');
-            navigate("/");
+            navigate("/login");
         }
-    }, [usuario.token]);
+    }, [
+    ]);
 
     return (
         <div className='container mx-auto m-4 rounded-2xl overflow-hidden'>
