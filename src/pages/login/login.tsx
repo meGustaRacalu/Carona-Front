@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import './Login.css';
+import './login.css';
 import { AuthContext } from '../../contexts/authcontext';
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import UsuarioLogin from '../../models/usuariologin';
@@ -54,28 +54,36 @@ function Login() {
                         position: "absolute",
                         top: "10%",
                         left: "10%",
-                        width: "200px",
-                        height: "200px",
+                        width: "250px",
+                        height: "250px",
                         borderRadius: "50%",
                         background: "rgba(255, 255, 255, 0.1)"
                     }}
-                ></div>
+                > <img
+                src="https://imgur.com/cHIAgds.png"
+                alt="Decorative"
+                className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto"
+                />
+                </div>
                 <div
                     style={{
                         position: "absolute",
                         bottom: "15%",
-                        right: "15%",
+                        right: "5%",
                         width: "300px",
                         height: "300px",
                         borderRadius: "50%",
                         background: "rgba(255, 255, 255, 0.05)"
                     }}
-                ></div>
+                    
+                >
                 <img
                     src="https://imgur.com/cHIAgds.png"
                     alt="Decorative"
                     className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto"
                 />
+                </div>
+               
                 <form
                     className="flex justify-center items-center flex-col w-1/3 gap-4 bg-white p-8 rounded-lg shadow-lg mt-36"
                     onSubmit={login}

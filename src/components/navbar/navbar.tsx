@@ -21,7 +21,7 @@ function Navbar() {
     component = (
 
         <div className='w-full bg-[#003f5c] text-white
-            flex justify-center py-4'>
+            flex justify-center py-4 text-white h-25'>
 
             <div className="container flex justify-between text-lg">
                 <Link to='/home'>
@@ -29,10 +29,9 @@ function Navbar() {
                         src="https://imgur.com/9jhdRAB.png"
                         alt="Logo pet ride"
                         width="100px"
-                        className="flex-shrink-0" // Adicione uma margem direita para separar a imagem dos links
+                        className="flex-shrink-0 mt-[-30px]" // Adicione uma margem direita para separar a imagem dos links
                     />
                 </Link>
-
                 <div className='flex gap-4'>
                     <Link to='/viagens' className='hover:underline'>Viagens</Link>
                     <Link to='/veiculos' className='hover:underline'>Veiculos</Link>

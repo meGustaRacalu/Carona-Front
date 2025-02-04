@@ -11,17 +11,17 @@ function CardViagem({ viagem }: CardViagensProps) {
             flex flex-col rounded overflow-hidden justify-between'>
 
             <div>
-                <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
-                    <img
-                        src={viagem?.image}
-                        className='h-12 rounded-full'
-                        alt={viagem?.destino} />
+                <img
+                    className="w-200 h-70"
+                    src={viagem.image}
+                    alt={viagem?.destino} />
+                <div className="flex w-full bg-[#003f5c] py-2 px-4 items-center gap-4">
                     <h3 className='text-lg font-bold text-center uppercase'>
                         {viagem?.destino}   
                     </h3>
                 </div>
                 <div className='p-4 '>
-                    <h4 className='text-lg font-semibold uppercase'>{viagem.usuario?.nome}</h4>
+                    <h4 className='text-lg font-semibold uppercase'>Motorista: {viagem.usuario?.nome}</h4>
                     <p>Preço: {viagem.preco}</p>
                     <p>Veiculo: {viagem.veiculo?.modelo} {viagem.veiculo?.marca}</p>
                     <p>Partida em: {new Intl.DateTimeFormat(undefined, {
@@ -32,7 +32,7 @@ function CardViagem({ viagem }: CardViagensProps) {
             </div>
             <div className="flex">
                 <Link to={`/editarviagem/${viagem.id}`}
-                    className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 
+                    className='w-full text-slate-100 bg-[#003f5c] hover:bg-backdrop-blur-[12.5px]  
     flex items-center justify-center py-2'>
                     <button>Editar</button>
                 </Link>
