@@ -16,6 +16,7 @@ import DeletarViagem from './components/viagens/deletarviagem/deletarviagem';
 import Perfil from './pages/perfil/perfil';
 import ModalViagem from './components/viagens/modalviagem/modalviagem';
 import ModalVeiculo from './components/veiculos/modalveiculos/ModalVeiculo';
+import Sobre from './pages/sobre/sobre';
 
 function App() {
     return (
@@ -39,6 +40,8 @@ function App() {
                             <Route path="/editarviagem/:id" element={<FormViagem />} />
                             <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
                             <Route path="/perfil" element={<Perfil />} />
+                            <Route path="/sobre" element={<Sobre />} />
+
                         </Routes>
                     <Footer />
                     </div>
