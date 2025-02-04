@@ -33,12 +33,12 @@ function Navbar() {
                     />
                 </Link>
                 <div className='flex gap-4'>
-                    <Link to='/viagens'  className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-2xl font-medium transition duration-300">Viagens</Link>
-                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-2xl font-medium transition duration-300">Veículos</Link>
-                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-2xl font-medium transition duration-300">Motorista</Link>
-                    <Link to='/perfil' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-2xl font-medium transition duration-300">Perfil</Link>
-                    <Link to='/login' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-2xl font-medium transition duration-300">Login</Link>
-                    <Link to='' onClick={logout} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-2xl font-medium transition duration-300">Sair</Link>
+                    <Link to='/viagens'  className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</Link>
+                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Veículos</Link>
+                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</Link>
+                    <Link to='/perfil' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Perfil</Link>
+                    <Link to='/login' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Login</Link>
+                    <Link to='' onClick={logout} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Sair</Link>
                 </div>
             </div>
         </div>
