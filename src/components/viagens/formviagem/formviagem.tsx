@@ -4,13 +4,11 @@ import { AuthContext } from "../../../contexts/authcontext";
 import Viagem from "../../../models/viagem";
 import Veiculo from "../../../models/veiculo";
 import { buscar, atualizar, cadastrar } from "../../../services/service";
-import { RotatingLines } from "react-loader-spinner";
 
 function FormViagem() {
 
     const navigate = useNavigate();
 
-    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [veiculos, setVeiculos] = useState<Veiculo[]>([])
 
     const [veiculo, setVeiculo] = useState<Veiculo>()
@@ -102,7 +100,6 @@ function FormViagem() {
 
     async function gerarNovaViagem(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        setIsLoading(true)
 
         console.log(usuario.id)
 
@@ -152,8 +149,6 @@ function FormViagem() {
                 }
             }
         }
-
-        setIsLoading(false)
         retornar()
     }
 

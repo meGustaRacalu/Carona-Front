@@ -12,7 +12,6 @@ import ListaVeiculos from './components/veiculos/listaveiculos/listaveiculos';
 import 'react-toastify/dist/ReactToastify.css';
 import FormVeiculo from './components/veiculos/formveiculo/formveiculo';
 import DeletarVeiculo from './components/veiculos/deletarveiculo/deletarveiculo';
-import ListaViagens from './components/viagens/listaviagens/listaviagens';
 import FormViagem from './components/viagens/formviagem/formviagem';
 import DeletarViagem from './components/viagens/deletarviagem/deletarviagem';
 import Perfil from './pages/perfil/perfil';
@@ -27,7 +26,7 @@ function App() {
                     <Navbar />
                     <div className="h-screen flex-col flex justify-between">
                         <Routes>
-                            <Route path="/" element={<Login />} />
+                            <Route path="/" element={<Home />} />
                             <Route path="/home" element={<Home />} />
                             <Route path="/cadastro" element={<Cadastro />} />
                             <Route path="/login" element={<Login />} />
@@ -40,7 +39,6 @@ function App() {
                             <Route path="/editarviagem/:id" element={<FormViagem />} />
                             <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
                             <Route path="/perfil" element={<Perfil />} />
-
                         </Routes>
                     <Footer />
                     </div>

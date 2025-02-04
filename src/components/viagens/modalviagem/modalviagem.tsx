@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 function ModalViagem() {
     return (
         <>
+        <div className="container mx-auto p-4">
+            <div className="flex justify-end items-center mb-4">
             <Popup
                 trigger={
                     <Link to="/cadastrarviagem">
@@ -22,7 +24,9 @@ function ModalViagem() {
             >
                 <FormViagem />
             </Popup>
+            </div>
             <ListaViagens></ListaViagens>
+        </div>
         </>
     );
 }
