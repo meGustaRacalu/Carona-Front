@@ -5,7 +5,7 @@ function Sobre() {
         <div className="container mx-auto my-8 px-4 rounded-2xl bg-[#003f5c] text-white">
             <div 
                 className="w-full h-72 bg-cover bg-center rounded-t-2xl" 
-                style={{ backgroundImage: "url('https://cczconchal.wordpress.com/wp-content/uploads/2015/05/cropped-cc3a3o-e-gato.jpg')" }}>
+                style={{ backgroundImage: "url('https://imgur.com/F7toTMl.png')" }}>
             </div>
 
             <div className="p-8">
