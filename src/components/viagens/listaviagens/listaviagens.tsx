@@ -4,7 +4,7 @@ import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/authcontext";
 import Viagem from "../../../models/viagem";
 import { buscar } from "../../../services/service";
-import { DNA } from "react-loader-spinner";
+import { DNA, RotatingLines } from "react-loader-spinner";
 
 function ListaViagens() {
 
@@ -44,13 +44,12 @@ function ListaViagens() {
     return (
         <>
             {viagens.length === 0 && (
-                <DNA
-                    visible={true}
-                    height="200"
-                    width="200"
-                    ariaLabel="dna-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="dna-wrapper mx-auto"
+                 <RotatingLines
+                 strokeColor="white"
+                 strokeWidth="5"
+                 animationDuration="0.75"
+                 width="24"
+                 visible={true}
                 />
             )}
             <div className='container mx-auto my-4 

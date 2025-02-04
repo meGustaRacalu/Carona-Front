@@ -15,12 +15,11 @@ function Home() {
                 }}>
                 <div className="absolute inset-0 bg-black/60" />
 
-
-                <div className="flex justify-between w-full">
+                <div className="flex justify-between w-full absolute inset-0 bg-black/0">
                     <img
                         src="https://imgur.com/QBbOJQK.png"
                         alt="Frase pet merece"
-                        width="300px"
+                        width="300"
                         className="ml-10"
                     />
                     <div className="flex justify-center items-center">
@@ -28,7 +27,7 @@ function Home() {
                             src="https://imgur.com/OiHVAke.png"
                             alt="Logo pet ride"
                             width="200px"
-                            className="ml-90"
+                            className="ml-75"
                         />
                     </div>
                     <div className="flex justify-center">
@@ -36,8 +35,8 @@ function Home() {
                             src="https://imgur.com/X2cJzgB.png"
                             alt="Frase aonde for"
                             width="300px"
-                            className="mr-30"
-                        />
+                            className="w-full sm:w-1/3 lg:w-1/4 xl:w-100 mb-50 mx-auto mr-40"
+                            />
                     </div>
                 </div>
             </section>

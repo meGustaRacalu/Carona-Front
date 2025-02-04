@@ -6,5 +6,6 @@ export default interface veiculo {
     modelo: string;
     marca: string;
     placa: string;
+    velocidadeMedia: number;
     viagem?: Viagem | null;
 }

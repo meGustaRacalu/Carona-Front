@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FaTimes, FaSave } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/authcontext";
 import Veiculo from "../../../models/veiculo";
-import { atualizar, buscar, cadastrar, deletar } from "../../../services/service";
+import { atualizar, buscar, cadastrar } from "../../../services/service";
 import { RotatingLines } from "react-loader-spinner";
 import { ToastAlerta } from "../../../utils/toastalerta";
 
@@ -163,6 +163,15 @@ function FormVeiculo() {
                         name="placa"
                         placeholder="Diga a placa do seu veículo"
                         value={veiculo.placa}
+                        onChange={(e) => atualizarEstado(e)}
+                    />
+                    <label htmlFor="velocidadeMedia" className="text-[#00557f]">Velocidade Média do Veículo {"(km/h)"}</label>
+                    <input
+                        type="text"
+                        id="velocidadeMedia"
+                        name="velocidadeMedia"
+                        placeholder="Especifique a Velocidade Média do seu veículo"
+                        value={veiculo.velocidadeMedia}
                         onChange={(e) => atualizarEstado(e)}
                     />
                 </div>

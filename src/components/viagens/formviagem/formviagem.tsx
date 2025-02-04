@@ -77,14 +77,17 @@ function FormViagem() {
                     id: parseInt(value),
                     modelo: "",
                     marca: "",
-                    placa: ""
+                    placa: "",
+                    velocidadeMedia: 0
+
                 },
             });
             setVeiculo({...veiculo,
                 id: parseInt(value),
                 modelo: "",
                 marca: "",
-                placa: ""
+                placa: "",
+                velocidadeMedia: 0
             });
         } else {
             setViagem({
@@ -194,20 +197,6 @@ function FormViagem() {
                                 className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
                                 required
                             />
-                            
-                            <label className="block text-gray-700 font-semibold mb-2">Preço</label>
-                            <input
-                                type="number"
-                                name="preco"
-                                placeholder="Digite o preço"
-                                value={viagem.preco || ''}
-                                onChange={(e) =>
-                                    setViagem({ ...viagem, preco: parseFloat(e.target.value) })
-                                }
-                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                                required
-                            />
-
                             <label className="block text-gray-700 font-semibold mb-2">Data e Hora de Partida</label>
                             <input
                                 type="datetime-local"
@@ -223,10 +212,10 @@ function FormViagem() {
 
                             <label className="block text-gray-700 font-semibold mb-2">Foto: </label>
                             <input
-                                type="datetime-local"
+                                type="text"
                                 name="image"
-                                placeholder="Digite a Data"
-                                value={viagem.dataHoraPartida?.toString() || ''}
+                                placeholder="Link da Foto"
+                                value={viagem.image || ''}
                                 onChange={(e) =>
                                     setViagem({ ...viagem, image:e.target.value })
                                 }
