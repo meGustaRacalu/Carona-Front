@@ -14,6 +14,9 @@ function ListaVeiculos() {
     const token = usuario.token;
 
     async function buscarVeiculos() {
+        if(token === ''){
+            return null;
+        }
         try {
             await buscar('/veiculos', setVeiculos, {
                 headers: { Authorization: token }
@@ -30,7 +33,7 @@ function ListaVeiculos() {
     useEffect(() => {
         if (token === '') {
             ToastAlerta('Você precisa estar logado!', 'erro');
-            navigate('/');
+            navigate('/login');
         }
     }, [token]);
 

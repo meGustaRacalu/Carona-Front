@@ -90,7 +90,7 @@ function Cadastro() {
             }
           `}
         </style>
-        <div className="fundoCadastro hidden lg:block" style={{ backgroundImage: "url('https://i.imgur.com/l4s2cfE.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
+        <div className="fundoCadastro hidden lg:block transform -scale-x-100" style={{ backgroundImage: "url('https://imgur.com/HVRad2C.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
         <form className='flex justify-center items-center flex-col w-2/3 gap-3 bg-white p-8 rounded-lg shadow-lg' 
           onSubmit={cadastrarNovoUsuario}>
           <h2 className='text-[#00557f] text-4xl font-semibold'>Cadastrar</h2>

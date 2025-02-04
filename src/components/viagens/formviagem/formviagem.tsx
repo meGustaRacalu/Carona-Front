@@ -5,7 +5,6 @@ import Viagem from "../../../models/viagem";
 import Veiculo from "../../../models/veiculo";
 import { buscar, atualizar, cadastrar } from "../../../services/service";
 import { ToastAlerta } from "../../../utils/toastalerta";
-import ViagemMap from "../viagemmap/ViagemMap";
 
 function FormViagem() {
 
@@ -189,7 +188,6 @@ function FormViagem() {
                                 className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
                                 required
                             />
-                            <ViagemMap></ViagemMap>
                             <label className="block text-gray-700 font-semibold mb-2">Distancia da viagem</label>
                             <input
                                 type="text"
