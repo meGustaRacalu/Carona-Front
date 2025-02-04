@@ -1,4 +1,4 @@
-import { FacebookLogo } from '@phosphor-icons/react'
+import { GithubLogo } from '@phosphor-icons/react'
 import { ReactNode, useContext } from 'react'
 import { AuthContext } from '../../contexts/authcontext'
 
@@ -17,8 +17,8 @@ function Footer() {
                 </p>
                 <p className='text-lg'>Acesse nosso GitHub</p>
                 <div className='flex gap-2'>
-                    <a href="https://www.facebook.com/generationbrasil" target="_blank">
-                        <FacebookLogo size={48} weight='bold' />
+                    <a href="https://github.com/meGustaRacalu" target="_blank">
+                        <GithubLogo size={48} weight='bold' />
                     </a>
                 </div>
             </div>
