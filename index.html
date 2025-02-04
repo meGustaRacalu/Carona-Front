@@ -1,20 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestão de Transporte</title>
+    <style>
+      #map {
+        width: 60%;
+        height: 350px;
+        margin-bottom: 10px;
+      }
+      #form button {
+        background-color: blue;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .modal {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+      }
+      .modal-content {
+        background-color: white;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gestão de Transporte</h1>
+    <div id="map"></div>
+    <form id="form">
+      <label for="origem">Origem:</label>
+      <input type="text" id="origem" name="origem" /><br /><br />
+      <label for="destino">Destino:</label>
+      <input type="text" id="destino" name="destino" /><br /><br />
+      <label for="consumo">Média de consumo de combustível (km/l):</label>
+      <input type="number" id="consumo" name="consumo" step="any" min="0" /><br /><br />
+      <label for="preco">Preço do combustível (R$/l):</label>
+      <input type="number" id="preco" name="preco" step="any" min="0" /><br /><br />
+      <button type="button" onclick="calcular()">Calcular</button>
+    </form>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="https://imgur.com/TpYUd3y.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pet Ride</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Delius+Unicase:wght@400;700&display=swap"
-    rel="stylesheet">
-</head>
+    <div id="resultado"></div>
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+    <!-- Modal de resultado -->
+    <div id="modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h2>Resultado do Cálculo</h2>
+        <p id="resultadoTexto"></p>
+      </div>
+    </div>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8oYGuoylABQW3cH15heelFA7XISXaIP0&callback=initMap" async defer></script>
+    <script>
+      var origemMarker = null;
+      var destinoMarker = null;
+      var map;
+      var directionsRenderer;
+
+      // Função de inicialização do mapa
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -23.5505, lng: -46.6333 },
+          zoom: 12,
+        });
+
+        directionsRenderer = new google.maps.DirectionsRenderer({
+          map: map,
+        });
+
+        map.addListener("click", function (event) {
+          if (origemMarker == null) {
+            origemMarker = new google.maps.Marker({
+              position: event.latLng,
+              map: map,
+            });
+            document.getElementById("origem").value =
+              event.latLng.lat() + ", " + event.latLng.lng();
+          } else if (destinoMarker == null) {
+            destinoMarker = new google.maps.Marker({
+              position: event.latLng,
+              map: map,
+            });
+            document.getElementById("destino").value =
+              event.latLng.lat() + ", " + event.latLng.lng();
+            var directionsService = new google.maps.DirectionsService();
+            var request = {
+              origin: document.getElementById("origem").value,
+              destination: document.getElementById("destino").value,
+              travelMode: "DRIVING",
+              /*travelMode: "BICYCLING", Para calcular o tempo de bicicleta*/
+              /*travelMode: "WALKING",  Para calcular o tempo a pé*/
+            };
+
+            directionsService.route(request, function (result, status) {
+              if (status == "OK") {
+                directionsRenderer.setDirections(result);
+              } else {
+                alert("Não foi possível calcular a rota.");
+              }
+            });
+          } else {
+            origemMarker.setMap(null);
+            destinoMarker.setMap(null);
+            origemMarker = new google.maps.Marker({
+              position: event.latLng,
+              map: map,
+            });
+            destinoMarker = null;
+            document.getElementById("origem").value =
+              event.latLng.lat() + ", " + event.latLng.lng();
+            document.getElementById("destino").value = "";
+            directionsRenderer.set("directions", null);
+          }
+        });
+      }
+
+      function calcular() {
+        var origem = document.getElementById("origem").value;
+        var destino = document.getElementById("destino").value;
+        var consumo = document.getElementById("consumo").value;
+        var preco = document.getElementById("preco").value;
+
+        if (origem == "" || destino == "" || consumo == "" || preco == "") {
+          alert("Por favor, preencha todos os campos.");
+        } else {
+          var directionsService = new google.maps.DirectionsService();
+          var request = {
+            origin: origem,
+            destination: destino,
+            travelMode: "DRIVING",
+          };
+
+          directionsService.route(request, function (result, status) {
+            if (status == "OK") {
+              directionsRenderer.setDirections(result);
+
+              var distancia = result.routes[0].legs[0].distance.value / 1000; // Distância em km
+              var tempo = result.routes[0].legs[0].duration.value / 3600; // Tempo em horas
+
+              // Cálculo do valor da corrida e tempo
+              var consumoCombustivel = distancia / consumo;
+              var valorCorrida = consumoCombustivel * preco;
+
+              // Cálculo do tempo em minutos
+              var tempoMinutos = tempo * 60;
+
+              // Exibe o resultado no popup
+              var resultadoTexto = `Distância: ${distancia.toFixed(2)} km<br />Valor da Corrida: R$ ${valorCorrida.toFixed(2)}<br />Tempo de Percurso: ${tempoMinutos.toFixed(0)} minutos`;
+              document.getElementById("resultadoTexto").innerHTML = resultadoTexto;
+              document.getElementById("modal").style.display = "block";
+            } else {
+              alert("Não foi possível calcular a rota.");
+            }
+          });
+        }
+      }
+
+      function fecharModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
+  </body>
 </html>
