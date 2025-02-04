@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { consultar } from '../../../services/service';
+import { ToastAlerta } from '../../../utils/toastalerta';
 
 interface Usuario {
   id: number;
@@ -15,7 +16,7 @@ function ListarUsuarios() {
     try {
       await consultar('/users', setUsuarios);
     } catch (error: any) {
-      alert('Erro!')
+      ToastAlerta('Erro!', 'erro')
     }
     
   }

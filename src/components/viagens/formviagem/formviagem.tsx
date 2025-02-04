@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/authcontext";
 import Viagem from "../../../models/viagem";
 import Veiculo from "../../../models/veiculo";
 import { buscar, atualizar, cadastrar } from "../../../services/service";
+import { ToastAlerta } from "../../../utils/toastalerta";
 
 function FormViagem() {
 
@@ -46,7 +47,7 @@ function FormViagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            ToastAlerta('Você precisa estar logado', 'erro');
             navigate('/');
         }
     }, [token])
@@ -124,13 +125,13 @@ function FormViagem() {
                         Authorization: token,
                     },
                 });
-                alert('Viagem atualizada com sucesso')
+                ToastAlerta('Viagem atualizada com sucesso', 'sucesso')
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Viagem')
+                    ToastAlerta('Erro ao atualizar a Viagem', 'erro')
                 }
             }
 
@@ -142,13 +143,13 @@ function FormViagem() {
                     },
                 })
 
-                alert('Viagem cadastrada com sucesso');
+                ToastAlerta('Viagem cadastrada com sucesso', 'sucesso');
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a Viagem');
+                    ToastAlerta('Erro ao cadastrar a Viagem', 'erro');
                 }
             }
         }

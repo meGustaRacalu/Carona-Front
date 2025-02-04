@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/authcontext"
 import Viagem from "../../../models/viagem"
 import { buscar, deletar } from "../../../services/service"
 import { RotatingLines } from "react-loader-spinner"
+import { ToastAlerta } from "../../../utils/toastalerta"
 
 function DeletarViagem() {
 
@@ -33,7 +34,7 @@ function DeletarViagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            ToastAlerta('Você precisa estar logado', 'erro')
             navigate('/')
         }
     }, [token])
@@ -54,13 +55,13 @@ function DeletarViagem() {
                 }
             })
 
-            alert('Viagem apagada com sucesso')
+            ToastAlerta('Viagem apagada com sucesso', 'sucesso')
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 handleLogout()
             } else {
-                alert('Erro ao deletar a viagem.')
+                ToastAlerta('Erro ao deletar a viagem.', 'erro')
             }
         }
 
