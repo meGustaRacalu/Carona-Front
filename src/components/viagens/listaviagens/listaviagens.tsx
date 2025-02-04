@@ -4,7 +4,7 @@ import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/authcontext";
 import Viagem from "../../../models/viagem";
 import { buscar } from "../../../services/service";
-import { DNA, RotatingLines } from "react-loader-spinner";
+import { RotatingLines } from "react-loader-spinner";
 import { ToastAlerta } from "../../../utils/toastalerta";
 
 function ListaViagens() {
