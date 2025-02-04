@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resultados da gestão de transporte</title>
+    <style>
+      button#btn-voltar {
+        background-color: blue;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #resultados {
+        margin-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Resultados do calculo do transporte</h1>
+    <div id="resultados">
+      <p>Distancia percorrida: <span style="font-weight: bold; color: black;" id="distancia"></span> km</p>
+      <p>Consumo de combustivel: <span style="font-weight: bold; color: black;" id="consumo"></span> litros</p>
+      <p>Valor gasto com combustivel: R$<span style="font-weight: bold; color: black;" id="valor"></span></p>
+      <button type="button" onclick="window.location.href='index.html'" id="btn-voltar">Voltar</button>
+    </div>
+
+    <script>
+      // Obter parâmetros da URL
+      var urlParams = new URLSearchParams(window.location.search);
+
+      // Exibir resultados na página
+      document.getElementById("distancia").textContent = urlParams.get("distancia") || "Não disponível";
+      document.getElementById("consumo").textContent = urlParams.get("consumo") || "Não disponível";
+      document.getElementById("valor").textContent = urlParams.get("valor") || "Não disponível";
+    </script>
+  </body>
+</html>
