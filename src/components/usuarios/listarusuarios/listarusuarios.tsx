@@ -15,7 +15,7 @@ function ListarUsuarios() {
     try {
       await consultar('/users', setUsuarios);
     } catch (error: any) {
-      alert('Erro!')
+      Toastalerta('Erro!', 'erro')
     }
     
   }
@@ -37,3 +37,7 @@ function ListarUsuarios() {
 }
 
 export default ListarUsuarios;
+
+function Toastalerta(arg0: string, arg1: string) {
+  throw new Error('Function not implemented.');
+}
