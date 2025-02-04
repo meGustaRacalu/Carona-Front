@@ -15,23 +15,30 @@ function Navbar() {
         ToastAlerta('O Usuário foi desconectado com sucesso!', 'info')
         navigate('/')
     }
-    
+
     let component: ReactNode
 
     if (usuario.token !== "") {
 
         component = (
 
-            <div className='w-full bg-blue-900 text-white
+            <div className='w-full bg-[#003f5c] text-white
                 flex justify-center py-4'>
 
                 <div className="container flex justify-between text-lg">
-                    <Link to='/home' className="text-2xl font-bold">Pet Ride</Link>
+                    <Link to='/home'>
+                        <img
+                            src="https://imgur.com/9jhdRAB.png"
+                            alt="Logo pet ride"
+                            width="100px"
+                            className="flex-shrink-0" // Adicione uma margem direita para separar a imagem dos links
+                        />
+                    </Link>
 
                     <div className='flex gap-4'>
                         <Link to='/viagens' className='hover:underline'>Viagens</Link>
                         <Link to='/veiculos' className='hover:underline'>Veiculos</Link>
-                        <Link to='/cadastrarveiculo' className='hover:underline'>Motorista parceiro</Link>
+                        <Link to='/cadastrarveiculo' className='hover:underline'>Motorista</Link>
                         <Link to='/perfil' className='hover:underline'>Perfil</Link>
                         <Link to='/login' className='hover:underline'>Login</Link>
                         <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
@@ -45,7 +52,7 @@ function Navbar() {
 
     return (
         <>
-            { component }
+            {component}
         </>
     )
 }
