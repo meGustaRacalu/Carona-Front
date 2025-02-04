@@ -220,6 +220,19 @@ function FormViagem() {
                                 className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
                                 required
                             />
+
+                            <label className="block text-gray-700 font-semibold mb-2">Foto: </label>
+                            <input
+                                type="datetime-local"
+                                name="image"
+                                placeholder="Digite a Data"
+                                value={viagem.dataHoraPartida?.toString() || ''}
+                                onChange={(e) =>
+                                    setViagem({ ...viagem, image:e.target.value })
+                                }
+                                className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                required
+                            />
                         </div>
                         <div>
                             <label className="block text-gray-700 font-semibold mb-2">Veiculo</label>

@@ -1,34 +1,48 @@
+import './Home.css';
+
 function Home() {
     return (
-        <>
-            <div style={{background: "#00557f"}}className="flex flex-grow bg-#00557f justify-center">
-                <div className='flex w-screen justify-center text-white'>
-                    <div className="flex flex-row gap-4 items-center py-4 w-screen justify-center">
-                        <div className="flex flex-col items-center w-70">
-                            <img
-                                src="https://imgur.com/OiHVAke.png"
-                                alt="Logo pet ride"
-                                width="280px"
-                            />
-                            <h3>Seu pet merece estar ao seu lado <br />aonde você for </h3>
-                        </div>
-                        <div style={{
-                            width: "50vw",
-                            display: "flex",
-                            alignItems: "center" // Alinhar verticalmente a imagem maior
-                        }}>
-                            <img
-                                src="https://imgur.com/HVRad2C.png"
-                                alt="Imagem cachorro + motorista"
-                                width="600px"
-                                style={{ borderRadius: '30px' }}
-                            />
-                        </div>
+
+        <div className="min-h-screen w-full overflow-y-auto">
+            <section
+                className="relative h-screen flex items-center justify-center bg-center"
+                style={{
+                    backgroundImage:
+                        "url('https://imgur.com/43vYaNA.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                }}>
+                <div className="absolute inset-0 bg-black/60" />
+
+
+                <div className="flex justify-between w-full">
+                    <img
+                        src="https://imgur.com/QBbOJQK.png"
+                        alt="Frase pet merece"
+                        width="300px"
+                        className="ml-10"
+                    />
+                    <div className="flex justify-center items-center">
+                        <img
+                            src="https://imgur.com/OiHVAke.png"
+                            alt="Logo pet ride"
+                            width="200px"
+                            className="ml-90"
+                        />
+                    </div>
+                    <div className="flex justify-center">
+                        <img
+                            src="https://imgur.com/X2cJzgB.png"
+                            alt="Frase aonde for"
+                            width="300px"
+                            className="mr-30"
+                        />
                     </div>
                 </div>
-            </div>
-        </>
-    )
+            </section>
+        </div>
+    );
 }
 
-export default Home
+export default Home;

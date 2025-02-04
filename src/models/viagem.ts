@@ -7,6 +7,7 @@ export default interface viagem {
   origem: string;
   destino: string;
   distancia: number;
+  image: string;
   veiculo?: Veiculo;
   preco: number;
   usuario?: Usuario | null;

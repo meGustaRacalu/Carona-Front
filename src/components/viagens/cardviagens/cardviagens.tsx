@@ -13,9 +13,9 @@ function CardViagem({ viagem }: CardViagensProps) {
             <div>
                 <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
                     <img
-                        src={viagem.usuario?.foto}
+                        src={viagem?.image}
                         className='h-12 rounded-full'
-                        alt={viagem.usuario?.nome} />
+                        alt={viagem?.destino} />
                     <h3 className='text-lg font-bold text-center uppercase'>
                         {viagem?.destino}   
                     </h3>
