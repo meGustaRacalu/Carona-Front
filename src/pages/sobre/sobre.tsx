@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Sobre() {
     return (
         <div className="container mx-auto my-8 px-4 rounded-2xl bg-[#003f5c] text-white">
