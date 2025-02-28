@@ -1,0 +1,19 @@
+.navbar {
+  /* Estilos gerais da navbar */
+  background-color: #003f5c;
+  color: white;
+  padding: 20px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centraliza verticalmente */
+  max-width: 1200px; /* Ajustar a largura máxima conforme necessário */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center; /* Centraliza a logo horizontalmente */
+}
