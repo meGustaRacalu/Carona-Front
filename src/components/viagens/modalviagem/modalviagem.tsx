@@ -2,7 +2,7 @@ import Popup from 'reactjs-popup';
 import FormViagem from '../formviagem/formviagem';
 
 import 'reactjs-popup/dist/index.css';
-import './ModalViagem.css'
+import './modalViagem.css'
 import ListaViagens from '../listaviagens/listaviagens';
 
 function ModalViagem() {
