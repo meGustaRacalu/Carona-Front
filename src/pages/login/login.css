@@ -6,3 +6,20 @@
     background-size: cover;
     background-position: center;
 }
+
+@media (max-width: 768px) {
+    form {
+        width: 90% !important;
+        max-width: 400px !important;
+        padding: 16px !important;
+    }
+
+    .fundoLogin {
+        background-position: top center;
+        background-size: cover;
+    }
+
+    .decorative-img {
+        display: none;
+    }
+}

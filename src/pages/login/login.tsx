@@ -49,45 +49,45 @@ function Login() {
                         }
                     `}
                 </style>
-                <div
-                    style={{
-                        position: "absolute",
-                        top: "10%",
-                        left: "10%",
-                        width: "250px",
-                        height: "250px",
-                        borderRadius: "50%",
-                        background: "rgba(255, 255, 255, 0.1)"
-                    }}
-                > <img
-                src="https://imgur.com/cHIAgds.png"
-                alt="Decorative"
-                className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto"
-                />
-                </div>
-                <div
-                    style={{
-                        position: "absolute",
-                        bottom: "15%",
-                        right: "5%",
-                        width: "300px",
-                        height: "300px",
-                        borderRadius: "50%",
-                        background: "rgba(255, 255, 255, 0.05)"
-                    }}
-                    
-                >
-                <img
-                    src="https://imgur.com/cHIAgds.png"
-                    alt="Decorative"
-                    className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto"
-                />
-                </div>
+                <div className="hidden md:block" 
+     style={{
+         position: "absolute",
+         top: "10%",
+         left: "10%",
+         width: "250px",
+         height: "250px",
+         borderRadius: "50%",
+         background: "rgba(255, 255, 255, 0.1)"
+     }}>
+    <img
+        src="https://imgur.com/cHIAgds.png"
+        alt="Decorative"
+        className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto decorative-img"
+    />
+</div>
+
+<div className="hidden md:block"
+     style={{
+         position: "absolute",
+         bottom: "15%",
+         right: "5%",
+         width: "300px",
+         height: "300px",
+         borderRadius: "50%",
+         background: "rgba(255, 255, 255, 0.05)"
+     }}>
+    <img
+        src="https://imgur.com/cHIAgds.png"
+        alt="Decorative"
+        className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto decorative-img"
+    />
+</div>
                
                 <form
-                    className="flex justify-center items-center flex-col w-1/3 gap-4 bg-white p-8 rounded-lg shadow-lg mt-36"
-                    onSubmit={login}
-                >
+    className="flex justify-center items-center flex-col w-full max-w-md gap-4 
+               bg-white p-8 rounded-lg shadow-lg mt-36 md:w-1/3"
+    onSubmit={login}
+>
                     <h2 className="text-[#00557f] text-4xl font-semibold">Entrar</h2>
                     <div className="flex flex-col w-full">
                         <label htmlFor="usuario" className="text-[#00557f]">
