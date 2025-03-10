@@ -1,75 +1,86 @@
-import { ReactNode, useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authcontext";
 import { ToastAlerta } from "../../utils/toastalerta";
+import { HiMenu, HiX } from "react-icons/hi"; 
 
 function Navbar() {
-
     const navigate = useNavigate();
+    const { usuario, handleLogout } = useContext(AuthContext);
+    const [menuAberto, setMenuAberto] = useState(false);
 
-    const { usuario, handleLogout } = useContext(AuthContext)
-
-    const [open, setOpen] = useState(false);
-
-
-    function handleClick(){
-        setOpen(!open)
+    function toggleMenu() {
+        setMenuAberto(!menuAberto);
     }
+
     function logout() {
-
-        handleLogout()
-        ToastAlerta('O Usuário foi desconectado com sucesso!', 'info')
-        navigate('/')
+        handleLogout();
+        ToastAlerta("O Usuário foi desconectado com sucesso!", "info");
+        navigate("/");
     }
 
-    let component: ReactNode
-
-    component = (
-        <div className='w-full bg-[#003f5c] text-white
-            flex justify-center py-4 text-white h-25'>
-            <div className="container flex justify-between text-lg">
-                <Link to='/home'>
+    return (
+        <nav className="w-full bg-[#003f5c] text-white py-3">
+            <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-20">
+                
+                <Link to="/home" className="flex items-center">
                     <img
                         src="https://imgur.com/9jhdRAB.png"
-                        alt="Logo pet ride"
-                        width="100px"
-                        className="flex-shrink-0 mt-[-30px]" 
+                        alt="Logo PetRide"
+                        className="w-auto h-30"
                     />
                 </Link>
-                {!usuario.token &&
-                <div className='flex gap-4'>
-                    <Link to='/viagens'  className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</Link>
-                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Veículos</Link>
-                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</Link>
-                    <Link to='/login' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Login</Link>
-                    <Link to='/sobre' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Sobre</Link>
+
+                <div className="hidden md:flex gap-6 items-center">
+                    <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SOBRE</Link>
+                    <Link to="/viagens" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</Link>
+                    <Link to="/veiculos" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</Link>
+                    <Link to="/cadastrarveiculo" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</Link>
                 </div>
-                }
-                {usuario.token && 
-                  <div className='flex gap-4'>
-                    <Link to='/viagens'  className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</Link>
-                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Veículos</Link>
-                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</Link>
-                    <Link to='/sobre' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Sobre</Link>
-                    
-                    {
-                    open &&
-                    <>
-                    <Link to='/perfil' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Perfil</Link>
-                    <Link to='' onClick={logout} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Sair</Link>
-                    </>
-                    }
-                    <img onClick={handleClick} src={usuario.foto} style={{borderRadius: "50%"}}></img>
-                </div>
-                }
+
+                {!usuario.token ? (
+                    <div className="hidden md:flex gap-4 items-center">
+                        <Link to="/login" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">ENTRAR</Link>
+                        <Link to="/cadastro" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">CRIAR CONTA</Link>
+                    </div>
+                ) : (
+                    <div className="hidden md:flex gap-4 items-center">
+                        <Link to="/perfil" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">PERFIL</Link>
+                        <button onClick={logout} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SAIR</button>
+                        <img
+                            src={usuario.foto}
+                            alt="Foto do usuário"
+                            className="w-10 h-10 rounded-full cursor-pointer"
+                        />
+                    </div>
+                )}
+
+                <button onClick={toggleMenu} className="md:hidden text-white text-3xl">
+                    {menuAberto ? <HiX /> : <HiMenu />}
+                </button>
+
+                {menuAberto && (
+                    <div className="absolute top-16 left-0 w-full bg-[#003f5c] flex flex-col items-center py-4 md:hidden">
+                        <Link to="/sobre" className="py-2 hover:text-yellow-300 text-lg font-medium">SOBRE</Link>
+                        <Link to="/viagens" className="py-2 hover:text-yellow-300 text-lg font-medium">VIAGENS</Link>
+                        <Link to="/veiculos" className="py-2 hover:text-yellow-300 text-lg font-medium">VEÍCULOS</Link>
+                        <Link to="/cadastrarveiculo" className="py-2 hover:text-yellow-300 text-lg font-medium">MOTORISTA</Link>
+                        {!usuario.token ? (
+                            <>
+                                <Link to="/login" className="py-2 hover:text-yellow-300 text-lg font-medium">ENTRAR</Link>
+                                <Link to="/cadastro" className="py-2 hover:text-yellow-300 text-lg font-medium">CRIAR CONTA</Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/perfil" className="py-2 hover:text-yellow-300 text-lg font-medium">PERFIL</Link>
+                                <button onClick={logout} className="py-2 hover:text-yellow-300 text-lg font-medium">SAIR</button>
+                            </>
+                        )}
+                    </div>
+                )}
             </div>
-        </div>
-        )
-    return (
-        <>
-            {component}
-        </>
-    )
+        </nav>
+    );
 }
 
-export default Navbar
+export default Navbar;
