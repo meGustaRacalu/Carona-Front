@@ -34,7 +34,7 @@ function Home() {
                 </div>
             </section>
 
-            <section className="flex flex-col items-center justify-center text-center py-16 px-6 bg-white text-gray-900">
+            <section id="transicao" className="flex flex-col items-center justify-center text-center py-16 px-6 bg-white text-gray-900">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">O que é a PetRide?</h2>
                 <p className="text-lg max-w-3xl mx-auto leading-relaxed">
                     A <span className="font-semibold text-[#003f5c]">PetRide</span> é um aplicativo feito <strong>tanto para tutores de pets, quanto para motoristas</strong> que desejam oferecer viagens seguras e confortáveis para os animais.  

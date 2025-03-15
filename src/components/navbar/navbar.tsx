@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authcontext";
 import { ToastAlerta } from "../../utils/toastalerta";
-import { HiMenu, HiX } from "react-icons/hi"; 
+import { HiMenu, HiX } from "react-icons/hi";
 
 function Navbar() {
     const navigate = useNavigate();
@@ -19,9 +19,17 @@ function Navbar() {
         navigate("/");
     }
 
+    function handleNavigation(route: string) {
+        if (!usuario.token) {
+            navigate("/login");
+        } else {
+            navigate(route);
+        }
+    }
+
     return (
-        <nav className="w-full bg-[#003f5c] text-white py-3">
-            <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-20">
+        <nav className="w-full bg-[#003f5c] text-white py-3 relative z-50">
+            <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-10">
                 
                 <Link to="/home" className="flex items-center">
                     <img
@@ -33,9 +41,9 @@ function Navbar() {
 
                 <div className="hidden md:flex gap-6 items-center">
                     <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SOBRE</Link>
-                    <Link to="/viagens" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</Link>
-                    <Link to="/veiculos" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</Link>
-                    <Link to="/cadastrarveiculo" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</Link>
+                    <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGEM</button>
+                    <button onClick={() => handleNavigation("/veiculos")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>
+                <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
                 </div>
 
                 {!usuario.token ? (
@@ -60,11 +68,11 @@ function Navbar() {
                 </button>
 
                 {menuAberto && (
-                    <div className="absolute top-16 left-0 w-full bg-[#003f5c] flex flex-col items-center py-4 md:hidden">
+                    <div className="absolute top-16 left-0 w-full bg-[#003f5c] bg-opacity-95 flex flex-col items-center py-4 md:hidden z-50">
                         <Link to="/sobre" className="py-2 hover:text-yellow-300 text-lg font-medium">SOBRE</Link>
-                        <Link to="/viagens" className="py-2 hover:text-yellow-300 text-lg font-medium">VIAGENS</Link>
-                        <Link to="/veiculos" className="py-2 hover:text-yellow-300 text-lg font-medium">VEÍCULOS</Link>
-                        <Link to="/cadastrarveiculo" className="py-2 hover:text-yellow-300 text-lg font-medium">MOTORISTA</Link>
+                        <button onClick={() => handleNavigation("/viagens")} className="py-2 hover:text-yellow-300 text-lg font-medium">VIAGENS</button>
+                        <button onClick={() => handleNavigation("/veiculos")} className="py-2 hover:text-yellow-300 text-lg font-medium">VEÍCULOS</button>
+                        <button onClick={() => handleNavigation("/cadastrarveiculo")} className="py-2 hover:text-yellow-300 text-lg font-medium">MOTORISTA</button>
                         {!usuario.token ? (
                             <>
                                 <Link to="/login" className="py-2 hover:text-yellow-300 text-lg font-medium">ENTRAR</Link>
