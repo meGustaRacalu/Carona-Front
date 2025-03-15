@@ -30,6 +30,7 @@ function Navbar() {
     return (
         <nav className="w-full bg-[#003f5c] text-white py-3 relative z-50">
             <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-10">
+            <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-20">
                 
                 <Link to="/home" className="flex items-center">
                     <img
@@ -43,7 +44,10 @@ function Navbar() {
                     <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SOBRE</Link>
                     <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGEM</button>
                     <button onClick={() => handleNavigation("/veiculos")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>
-                <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
+                    <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
+                    <button onClick={() => handleNavigation("/viagens")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
+                    <button onClick={() => handleNavigation("/veiculos")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>
+                    <button onClick={() => handleNavigation("/cadastrarveiculo")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
                 </div>
 
                 {!usuario.token ? (
