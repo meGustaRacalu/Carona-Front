@@ -42,12 +42,9 @@ function Navbar() {
 
                 <div className="hidden md:flex gap-6 items-center">
                     <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SOBRE</Link>
-                    <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGEM</button>
+                    <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
                     <button onClick={() => handleNavigation("/veiculos")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>
                     <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' });}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
-                    <button onClick={() => handleNavigation("/viagens")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
-                    <button onClick={() => handleNavigation("/veiculos")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>
-                    <button onClick={() => handleNavigation("/cadastrarveiculo")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
                 </div>
 
                 {!usuario.token ? (
@@ -90,6 +87,7 @@ function Navbar() {
                         )}
                     </div>
                 )}
+            </div>
             </div>
         </nav>
     );
