@@ -65,7 +65,7 @@ function Navbar() {
                 <div className="hidden md:flex gap-6 items-center">
                     <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>SOBRE</Link>
                     <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
-                    <button onClick={() => {handleNavigation("/veiculos");}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>
+                   {/* <button onClick={() => {handleNavigation("/veiculos");}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>*/}
                     <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
                 </div>
 
@@ -91,7 +91,7 @@ function Navbar() {
                 </button>
 
                 {menuAberto && (
-                    <div ref={menuRef} className="absolute top-16 left-0 w-full bg-[#003f5c] bg-opacity-95 flex flex-col items-center py-4 md:hidden z-50">
+                    <div ref={menuRef} className="absolute top-16 left-0 w-full bg-[#003f5cd2] bg-opacity-95 flex flex-col items-center py-4 md:hidden z-50">
                         <Link to="/sobre" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>SOBRE</Link>
                         <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
                         <button onClick={() => {handleNavigation("/veiculos");}} className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>VEÍCULOS</button>
