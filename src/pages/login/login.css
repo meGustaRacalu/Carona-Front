@@ -23,3 +23,17 @@
         display: none;
     }
 }
+
+
+@media (min-width: 850px){
+    div.focinho{
+        display: block;
+    }
+}
+
+@media (max-width: 850px){
+    div.focinho{
+        display: none;
+    }
+}
+
