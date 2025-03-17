@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function Footer() {
-    let data = new Date().getFullYear();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -52,7 +51,7 @@ function Footer() {
                         <span className="ml-1">GitHub</span>
                     </a>
                     <span>•</span>
-                    <p>© {data} PetRide</p>
+                    <p>© {new Date().getFullYear()} PetRide</p>
                 </div>
             </div>
         </div>
