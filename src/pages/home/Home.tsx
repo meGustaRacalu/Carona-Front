@@ -43,10 +43,10 @@ function Home() {
                         <div className="text-5xl">🚗</div>
                         <h3 className="text-2xl font-semibold mt-4">Quero uma viagem</h3>
                         <p className="text-gray-700 mt-2">
-                            <span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/cadastro')}>Cadastre-se</span> e agende viagens seguras com o seu pet. Escolha horários, motoristas e destinos personalizados.
+                            <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/cadastro')}>Cadastre-se</span> e agende viagens seguras com o seu pet. Escolha horários, motoristas e destinos personalizados.
                         </p>
                         <p className="mt-2 text-gray-700">
-                            Já tem conta? <span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/login')}>Faça login</span>
+                            Já tem conta? <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/login')}>Faça login</span>
                         </p>
                     </div>
                     
@@ -54,10 +54,10 @@ function Home() {
                         <div className="text-5xl">👨‍✈️</div>
                         <h3 className="text-2xl font-semibold mt-4">Quero ser motorista</h3>
                         <p className="text-gray-700 mt-2">
-                            <span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/cadastro')}>Seja um motorista parceiro</span>, transforme cada viagem em um ato de amor e garanta sua renda extra!
+                            <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/cadastro')}>Seja um motorista parceiro</span>, transforme cada viagem em um ato de amor e garanta sua renda extra!
                         </p>
                         <p className="mt-2 text-gray-700">
-                            Já é motorista? <span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/login')}>Faça login</span>
+                            Já é motorista? <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/login')}>Faça login</span>
                         </p>
                     </div>
                 </div>
@@ -67,16 +67,16 @@ function Home() {
                 <h2 className="text-3xl font-bold text-[#003f5c]">Como Funciona?</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto mt-8">
                     <div className="p-6 bg-white rounded-lg shadow-md">
-                        <h3 className="text-xl font-semibold">🐾 Para Passageiro</h3>
+                        <h3 className="text-xl font-semibold">🐾 Para Passageiros</h3>
                         <p className="text-gray-600 mt-2">Você e seu pet viajando com conforto e segurança!</p>
                         <ul className="text-gray-600 mt-4 text-left list-disc list-inside">
-                            <li><span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/cadastro')}>Cadastre-se</span> e crie seu perfil.</li>
+                            <li><span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/cadastro')}>Cadastre-se</span> e crie seu perfil.</li>
                             <li>Escolha um motorista parceiro.</li>
                             <li>Agende sua viagem com o seu pet.</li>
                             <li>Viaje com tranquilidade!</li>
                         </ul>
                         <p className="mt-2 text-gray-600">
-                            Já tem conta? <span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/login')}>Faça login</span>
+                            Já tem conta? <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/login')}>Faça login</span>
                         </p>
                     </div>
 
@@ -84,13 +84,13 @@ function Home() {
                         <h3 className="text-xl font-semibold">🚖 Para Motoristas</h3>
                         <p className="text-gray-600 mt-2">Transforme cada viagem em um ato de amor e renda extra!</p>
                         <ul className="text-gray-600 mt-4 text-left list-disc list-inside">
-                            <li><span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/cadastro')}>Cadastre-se</span> como motorista parceiro.</li>
+                            <li><span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/cadastro')}>Cadastre-se</span> como motorista parceiro.</li>
                             <li>Informe sua disponibilidade e localização.</li>
                             <li>Receba solicitações de viagens.</li>
                             <li>Transporte pets com segurança e cuidado!</li>
                         </ul>
                         <p className="mt-2 text-gray-600">
-                            Já é motorista? <span className="cursor-pointer text-[#003f5c]" onClick={() => navigate('/login')}>Faça login</span>
+                            Já é motorista? <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/login')}>Faça login</span>
                         </p>
                     </div>
                 </div>
