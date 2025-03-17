@@ -1,11 +1,12 @@
 import { useContext, useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/authcontext";
 import { ToastAlerta } from "../../utils/toastalerta";
 import { HiMenu, HiX } from "react-icons/hi";
 
 function Navbar() {
     const navigate = useNavigate();
+    const location = useLocation();
     const { usuario, handleLogout } = useContext(AuthContext);
     const [menuAberto, setMenuAberto] = useState(false);
     const menuRef = useRef(null); 
@@ -27,6 +28,16 @@ function Navbar() {
             navigate(route);
         }
         setMenuAberto(false);  
+    }
+
+    function handleLogoClick(event) {
+        event.preventDefault(); 
+        
+        if (location.pathname === "/home") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+            navigate("/home");
+        }
     }
 
     function closeMenu() {
@@ -54,13 +65,15 @@ function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 w-full bg-[#003f5c] text-white py-3 z-50">
             <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-10">
-                <Link to="/home" className="flex items-center">
+
+     
+                  <a href="/home" onClick={handleLogoClick} className="flex items-center">
                     <img
                         src="https://imgur.com/9jhdRAB.png"
                         alt="Logo PetRide"
                         className="w-auto h-30"
                     />
-                </Link>
+                </a>
 
                 <div className="hidden md:flex gap-6 items-center">
                     <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>SOBRE</Link>
