@@ -13,6 +13,10 @@
   margin: 0 auto; /* Centraliza horizontalmente */
 }
 
+body {
+  padding-top: 63px; /* Altere o valor conforme a altura do seu navbar */
+}
+
 .logo-container {
   display: flex;
   justify-content: center; /* Centraliza a logo horizontalmente */
