@@ -16,7 +16,8 @@ function ModalViagem() {
                             className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800 right'>
                             Nova Viagem
                         </button>
-                }
+                
+            }
                 modal
             >
                 <FormViagem />

@@ -72,6 +72,35 @@ function Navbar() {
         };
     }, [menuAberto]);
 
+    let menu : ReactNode = 
+        <>
+                    {
+                        usuario.token && 
+                    <>
+                    <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
+                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
+                    </>
+                    ||
+                    (location.pathname != "/home" && location.pathname != "/")
+                    &&
+                    <>
+                    <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
+                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
+                    </>
+                    }
+                    {
+                    (location.pathname === "/home" || location.pathname === "/") 
+                    && !usuario.token &&
+                    <>
+                    <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</button>
+                    <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</button>
+                    </>
+                    }
+                    <Link to="/sobre" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Sobre</Link>
+                    
+            </>
+        
+    
     return (
         <nav className="fixed top-0 left-0 right-0 w-full bg-[#003f5c] text-white py-3 z-50">
             <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-10">

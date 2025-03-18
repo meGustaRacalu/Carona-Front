@@ -33,6 +33,33 @@ function Home() {
 
             <section id="transicao" className="flex flex-col items-center justify-center text-center py-16 px-6 md:px-12 lg:max-w-7xl mx-auto bg-white text-gray-900">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">O que é a PetRide?</h2>
+                <p className="text-lg max-w-3xl mx-auto leading-relaxed text-justify">
+                    A PetRide é um aplicativo feito para <strong>tutores de pets,</strong> e também para <strong>motoristas</strong> que desejam ter uma renda extra, oferecendo viagens seguras e confortáveis para os animais.  
+                    <br />Nosso serviço conecta passageiros a motoristas preparados para transportar pets com carinho e responsabilidade.  
+                    Se você precisa de uma carona com o seu pet ou quer se tornar um motorista <span id="transicao viagem/motorista">parceiro, a <strong>PetRide</strong> é a escolha ideal para você!</span>
+                </p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 w-full max-w-5xl">
+                    <div className="p-8 border rounded-lg shadow-md flex flex-col items-center text-center transform transition-transform hover:scale-105">
+                        <div className="text-5xl">🚗</div>
+                        <h3 className="text-2xl font-semibold mt-4">Quero uma viagem</h3>
+                        <p className="text-gray-700 mt-2">
+                            <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/cadastro')}>Cadastre-se</span> e agende viagens seguras com o seu pet. Escolha horários, motoristas e destinos personalizados.
+                        </p>
+                        <p className="mt-2 text-gray-700">
+                            Já tem conta? <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/login')}>Faça login</span>
+                        </p>
+                    </div>
+                    
+                    <div  className="p-8 border rounded-lg shadow-md flex flex-col items-center text-center transform transition-transform hover:scale-105">
+                        <div className="text-5xl">👨‍✈️</div>
+                        <h3 className="text-2xl font-semibold mt-4">Quero ser motorista</h3>
+                        <p className="text-gray-700 mt-2">
+                            <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/cadastro')}>Seja um motorista parceiro</span>, transforme cada viagem em um ato de amor e garanta sua renda extra!
+                        </p>
+                        <p className="mt-2 text-gray-700">
+                            Já é motorista? <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/login')}>Faça login</span>
+                        </p>
+                    </div>
                 <div className="text-lg max-w-5xl mx-auto leading-relaxed text-justify">
                     <p>
                         A PetRide é um aplicativo feito para <strong>tutores de pets</strong> e também para <strong>motoristas</strong> que desejam ter uma renda extra, oferecendo viagens seguras e confortáveis para os animais.
