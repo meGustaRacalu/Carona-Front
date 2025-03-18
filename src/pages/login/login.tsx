@@ -86,7 +86,7 @@ function Login() {
 
                 <form
     className="flex justify-center items-center flex-col w-full max-w-md gap-4 
-               bg-white p-8 rounded-lg shadow-lg mt-36 md:w-1/3"
+               bg-white p-8 rounded-lg shadow-lg mt-36 md:w-1/3 h-[90vh] mb-10"
     onSubmit={login}
 >
                     <h2 className="text-[#00557f] text-4xl font-semibold">Entrar</h2>
