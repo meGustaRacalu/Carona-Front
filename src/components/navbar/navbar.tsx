@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef, ReactNode } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/authcontext";
 import { ToastAlerta } from "../../utils/toastalerta";
@@ -9,26 +9,29 @@ function Navbar() {
     const location = useLocation();
     const { usuario, handleLogout } = useContext(AuthContext);
     const [menuAberto, setMenuAberto] = useState(false);
-    const menuRef: any = useRef(null); 
+    const [menuPerfilAberto, setMenuPerfilAberto] = useState(false);
 
+    const menuRef: any = useRef(null); 
+    
+    
     function toggleMenu() {
         setMenuAberto(!menuAberto);
     }
+    
+    function closeMenu() {
+        setMenuAberto(false); 
+    }
+    
+    function toggleMenuPerfil(){
+        setMenuPerfilAberto(!menuPerfilAberto)
+    }
+    
 
     function logout() {
         closeMenu();
         handleLogout();
         ToastAlerta("O Usuário foi desconectado com sucesso!", "info");
         navigate("/");
-    }
-
-    function handleNavigation(route: string) {
-        if (!usuario.token) {
-            navigate("/login");
-        } else {
-            navigate(route);
-        }
-        setMenuAberto(false);  
     }
 
     function handleLogoClick(event : any) {
@@ -41,9 +44,6 @@ function Navbar() {
         }
     }
 
-    function closeMenu() {
-        setMenuAberto(false); 
-    }
 
     useEffect(() => {
         function handleClickFora(event: MouseEvent) {
@@ -63,6 +63,35 @@ function Navbar() {
         };
     }, [menuAberto]);
 
+    let menu : ReactNode = 
+        <>
+                     <Link to="/sobre" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Sobre</Link>
+                    {
+                    (location.pathname != "/home" && location.pathname != "/")
+                    &&
+                    <>
+                    <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
+                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
+                    </>
+                    || usuario.token && 
+                    <>
+                    <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
+                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
+                    </>
+                    }
+                    {
+                    (location.pathname === "/home" || location.pathname === "/") 
+                    && !usuario.token &&
+                    <>
+                    <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</button>
+                    <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</button>
+                    </>
+                    }
+                    
+                    <Link to="/veiculos" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Veiculos</Link>
+            </>
+        
+    
     return (
         <nav className="fixed top-0 left-0 right-0 w-full bg-[#003f5c] text-white py-3 z-50">
             <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-10">
@@ -77,10 +106,7 @@ function Navbar() {
                 </a>
 
                 <div className="hidden md:flex gap-6 items-center">
-                    <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>SOBRE</Link>
-                    <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
-                   {/* <button onClick={() => {handleNavigation("/veiculos");}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VEÍCULOS</button>*/}
-                    <button onClick={() => {document.getElementById('transicao')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
+                    { menu }
                 </div>
 
                 {!usuario.token ? (
@@ -90,13 +116,20 @@ function Navbar() {
                     </div>
                 ) : (
                     <div className="hidden md:flex gap-4 items-center">
-                        <Link to="/perfil" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>PERFIL</Link>
-                        <button onClick={logout} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SAIR</button>
+                        {
+                            menuPerfilAberto &&
+                            <>
+                            <Link to="/perfil" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>PERFIL</Link>
+                            <button onClick={logout} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SAIR</button>
+                            </>
+                        }
                         <img
+                            onClick={toggleMenuPerfil}
                             src={usuario.foto}
                             alt="Foto do usuário"
                             className="w-10 h-10 rounded-full cursor-pointer"
                         />
+                            
                     </div>
                 )}
 
@@ -106,11 +139,7 @@ function Navbar() {
 
                 {menuAberto && (
                     <div ref={menuRef} className="absolute top-16 left-0 w-full bg-[#003f5cd2] bg-opacity-95 flex flex-col items-center py-4 md:hidden z-50">
-                        <Link to="/sobre" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>SOBRE</Link>
-                        <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
-                        <button onClick={() => {handleNavigation("/veiculos");}} className="py-2 hover:text-yellow-300 text-lg font-medium">VEÍCULOS</button>
-                        <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
-                        
+                        { menu }
                         {!usuario.token ? (
                             <>
                                 <Link to="/login" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>ENTRAR</Link>
