@@ -6,12 +6,14 @@ import Veiculo from "../../../models/veiculo";
 import { buscar, atualizar, cadastrar } from "../../../services/service";
 import { ToastAlerta } from "../../../utils/toastalerta";
 
+
 function FormViagem() {
+
 
     const navigate = useNavigate();
 
     const [veiculos, setVeiculos] = useState<Veiculo[]>([])
-
+    const currentYear = new Date().getFullYear();
     const [veiculo, setVeiculo] = useState<Veiculo>()
     const [viagem, setViagem] = useState<Viagem>({} as Viagem)
 
@@ -19,6 +21,8 @@ function FormViagem() {
 
     const { usuario, handleLogout } = useContext(AuthContext)
     const token = usuario.token
+
+
 
     async function buscarViagemPorId(id: string) {
         try {
@@ -79,8 +83,7 @@ function FormViagem() {
                     modelo: "",
                     marca: "",
                     placa: "",
-                    velocidadeMedia: 0
-
+                    velocidadeMedia: 0,
                 },
             });
             setVeiculo({...veiculo,
@@ -88,7 +91,7 @@ function FormViagem() {
                 modelo: "",
                 marca: "",
                 placa: "",
-                velocidadeMedia: 0
+                velocidadeMedia: 0,
             });
         } else {
             setViagem({
@@ -105,7 +108,6 @@ function FormViagem() {
     async function gerarNovaViagem(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        console.log(usuario.id)
 
         setViagem({
             ...viagem, 
@@ -203,10 +205,12 @@ function FormViagem() {
                                 type="datetime-local"
                                 name="dataHoraPartida"
                                 placeholder="Digite a Data"
+                                maxLength={2020}
                                 value={viagem.dataHoraPartida?.toString() || ''}
-                                onChange={(e) =>
-                                    setViagem({ ...viagem, dataHoraPartida:e.target.value })
+                                onChange={
+                                    atualizarEstado
                                 }
+                                max={currentYear + 2 + "-12-31T23:59"}
                                 className="border rounded w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
                                 required
                             />
@@ -236,7 +240,7 @@ function FormViagem() {
                                 <option value="" disabled>Selecione um Veiculo</option>
                                 {veiculos.map((veiculo) => (
                                     <option key={veiculo.id} value={veiculo.id.toString()}>
-                                        {veiculo.modelo}
+                                        {veiculo.modelo}  |   {veiculo.placa}
                                     </option>
                                 ))}
                             </select>
@@ -244,7 +248,6 @@ function FormViagem() {
                         <div className="flex gap-4 mt-4">
                             <button
                                 type="button"
-                                onClick={() => navigate('/viagens')}
                                 className="w-1/2 bg-red-500 hover:bg-red-700 text-white py-2 rounded font-bold transition duration-300"
                             >
                                 Cancelar

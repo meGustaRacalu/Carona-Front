@@ -101,6 +101,7 @@ function Login() {
                             placeholder="Digite seu e-mail"
                             className="border-2 border-[#b1bf63] rounded-2xl p-2"
                             value={usuarioLogin.usuario}
+                            autoComplete='true'
                             onChange={(e: ChangeEvent<HTMLInputElement>) =>
                                 atualizarEstado(e)
                             }
@@ -118,6 +119,7 @@ function Login() {
                             className="border-2 border-[#b1bf63] rounded-2xl p-2"
                             minLength={8}
                             value={usuarioLogin.senha}
+                            autoComplete='true'
                             onChange={(e: ChangeEvent<HTMLInputElement>) =>
                                 atualizarEstado(e)
                             }

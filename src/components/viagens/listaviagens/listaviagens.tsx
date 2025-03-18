@@ -17,16 +17,19 @@ function ListaViagens() {
     const token = usuario.token;
 
     async function buscarViagens() {
-        try {
-            await buscar('/viagens', setViagens, {
-                headers: {
-                    Authorization: token,
-                },
-            })
+        if(token){
 
-        } catch (error: any) {
-            if (error.toString().includes('403')) {
-                handleLogout()
+            try {
+                await buscar('/viagens', setViagens, {
+                    headers: {
+                        Authorization: token,
+                    },
+                })
+                
+            } catch (error: any) {
+                if (error.toString().includes('403')) {
+                    handleLogout()
+                }
             }
         }
     }
