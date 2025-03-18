@@ -5,8 +5,6 @@ import Viagem from "../../../models/viagem";
 import Veiculo from "../../../models/veiculo";
 import { buscar, atualizar, cadastrar } from "../../../services/service";
 import { ToastAlerta } from "../../../utils/toastalerta";
-import Redirect from "../../redirect/redirect";
-
 
 function FormViagem() {
 
