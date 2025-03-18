@@ -68,7 +68,7 @@ function Home() {
                         Nosso serviço conecta passageiros a motoristas preparados para transportar pets com carinho e responsabilidade. Se você precisa de uma carona com o seu pet ou quer se tornar um motorista parceiro, a <strong>PetRide</strong> é a escolha ideal para você!
                     </p>
                 </div>
-                
+                </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 w-full max-w-6xl">
                     {[
                         { 
