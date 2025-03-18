@@ -33,23 +33,6 @@ function Sobre() {
             </section>
 
             <section className="py-16 text-center bg-[#f8f9fa] max-w-7xl mx-auto">
-                <h2 className="text-3xl font-bold text-[#003f5c]">Por que escolher a PetRide?</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-4">
-                    {[
-                        { title: "🐾 Motoristas Treinados", text: "Todos os motoristas passam por treinamentos específicos para transportar pets com segurança e cuidado." },
-                        { title: "🤝 Parceria Confiável", text: "Nossos motoristas são selecionados para garantir conforto e bem-estar para seu pet." },
-                        { title: "🌍 Mobilidade sem Fronteiras", text: "Acesse um transporte exclusivo para seu pet de forma prática e segura." },
-                        { title: "💰 Benefícios para Motoristas", text: "Ganhe dinheiro extra transportando passageiros que valorizam o seu trabalho." }
-                    ].map((item, index) => (
-                        <div key={index} className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center items-center text-center border border-gray-200">
-                            <h3 className="text-xl font-semibold">{item.title}</h3>
-                            <p className="text-gray-700 mt-2">{item.text}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className="py-16 text-center bg-[#f8f9fa] max-w-7xl mx-auto">
                 <h2 className="text-3xl font-bold text-[#003f5c]">Nosso Time</h2>
                 <p className="text-lg mt-4 max-w-4xl mx-auto">
                     A <strong>PetRide</strong> foi criada por um time apaixonado por inovação e pets.  
@@ -83,7 +66,7 @@ function Sobre() {
                             foto: "https://avatars.githubusercontent.com/u/148667879?v=4",
                         },
                     ].map((dev, index) => (
-                        <a href={dev.github} key={index} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:bg-gray-100 transition">
+                        <div key={index} className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:bg-gray-100 transition">
                             <img 
                                 src={dev.foto} 
                                 alt={dev.nome} 
@@ -91,21 +74,15 @@ function Sobre() {
                             />
                             <p className="text-xl font-semibold text-[#003f5c]">{dev.nome}</p>
                             <div className="mt-2 space-x-3">
-                                <a href={dev.github} className="text-[#003f5c] hover:underline">GitHub</a>
+                                <a href={dev.github} target="_blank" rel="noopener noreferrer" className="text-[#003f5c] hover:underline">GitHub</a>
                                 {dev.linkedin && (
-                                    <a href={dev.linkedin} className="text-[#003f5c] hover:underline">LinkedIn</a>
+                                    <a href={dev.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#003f5c] hover:underline">LinkedIn</a>
                                 )}
                             </div>
-                        </a>
+                        </div>
                     ))}
                 </div>
             </section>
-
-            <footer className="text-center mt-14 pb-6 bg-white">
-                <p className="text-xl font-semibold text-[#003f5c] mx-auto w-fit">
-                    🐾 <strong>PetRide</strong> - Seu pet merece estar do seu lado aonde você for.
-                </p>
-            </footer>
         </div>
     );
 }
