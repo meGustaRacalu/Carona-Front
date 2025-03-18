@@ -7,8 +7,7 @@ import { AuthProvider } from './contexts/authcontext';
 import Cadastro from './pages/cadastro/cadastro';
 import Home from './pages/home/Home';
 import Login from './pages/login/login';
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import FormVeiculo from './components/veiculos/formveiculo/formveiculo';
 import DeletarVeiculo from './components/veiculos/deletarveiculo/deletarveiculo';
 import FormViagem from './components/viagens/formviagem/formviagem';
@@ -17,15 +16,18 @@ import Perfil from './pages/perfil/perfil';
 import ModalViagem from './components/viagens/modalviagem/modalviagem';
 import ModalVeiculo from './components/veiculos/modalveiculos/ModalVeiculo';
 import Sobre from './pages/sobre/sobre';
+import FAQ from './pages/FAQ/FAQ';
+import TermosDeUso from './pages/termos/termos';
+import Privacidade from './pages/privacidade/privacidade';
 
 function App() {
     return (
-        <>
-            <AuthProvider>
-                <ToastContainer />
-                <BrowserRouter>
-                    <Navbar />
-                    <div className="h-screen flex-col flex justify-between">
+        <AuthProvider>
+            <ToastContainer />
+            <BrowserRouter>
+                <Navbar />
+                <div className="min-h-screen flex flex-col">
+                    <div className="flex-grow">
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/home" element={<Home />} />
@@ -41,13 +43,15 @@ function App() {
                             <Route path="/deletarviagem/:id" element={<DeletarViagem />} />
                             <Route path="/perfil" element={<Perfil />} />
                             <Route path="/sobre" element={<Sobre />} />
-
+                            <Route path="/faq" element={<FAQ />} />
+                            <Route path="/termos" element={<TermosDeUso />} />
+                            <Route path="/privacidade" element={<Privacidade />} />
                         </Routes>
-                    <Footer />
                     </div>
-                </BrowserRouter>
-            </AuthProvider>
-        </>
+                    <Footer />
+                </div>
+            </BrowserRouter>
+        </AuthProvider>
     );
 }
 
