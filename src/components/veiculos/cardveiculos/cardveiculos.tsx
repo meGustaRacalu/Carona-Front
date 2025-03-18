@@ -35,7 +35,7 @@ function CardVeiculos({ veiculo }: CardVeiculosProps) {
                     box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.2);
                 }
                 .btn-editar {
-                    background-color: #b1bf63;
+                    background-color: #00557f;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -74,7 +74,7 @@ function CardVeiculos({ veiculo }: CardVeiculosProps) {
             <div className="flex justify-around w-full gap-2 p-4">
                 <Link
                     to={`/editarveiculo/${veiculo.id}`}
-                    className="w-1/2 text-center py-3 rounded-3xl text-white btn-card btn-editar"
+                    className="w-1/2 text-center py-3 rounded-3xl text-white btn-card btn-editar hover:bg-[#00557f]"
                     onMouseEnter={() => setIsHoveredEditar(true)}
                     onMouseLeave={() => setIsHoveredEditar(false)}
                 >

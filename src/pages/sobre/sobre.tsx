@@ -3,7 +3,7 @@ function Sobre() {
         <div className="bg-[#f8f9fa] text-gray-900">
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden">
                 <img 
-                    src="https://imgur.com/F7toTMl.png" 
+                    src="https://i.imgur.com/R88HTMk.jpeg" 
                     alt="Gatinho" 
                     className="w-full h-full object-cover object-center md:object-top lg:object-[center_top]"
                 />
@@ -16,7 +16,7 @@ function Sobre() {
                 </h1>
             </div>
 
-            <section className="py-16 px-6 bg-white text-gray-900 max-w-6xl mx-auto">
+            <section className="py-16 px-6 bg-white text-gray-900 max-w-3xl mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-6 text-[#003f5c]">Nossa Missão</h2>
                 <p className="text-lg leading-relaxed text-justify">
                     A <strong>PetRide</strong> nasceu para facilitar a vida dos tutores de pets, garantindo que eles possam se locomover com segurança e conforto.  
@@ -24,7 +24,7 @@ function Sobre() {
                 </p>
             </section>
 
-            <section className="py-16 px-6 bg-white text-gray-900 max-w-6xl mx-auto">
+            <section className="py-16 px-6 bg-white text-gray-900 max-w-3xl mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-6 text-[#003f5c]">Nosso Compromisso</h2>
                 <p className="text-lg leading-relaxed text-justify">
                     Selecionamos motoristas treinados para garantir a melhor experiência tanto para os tutores quanto para os animais. 
@@ -32,13 +32,14 @@ function Sobre() {
                 </p>
             </section>
 
-            <section className="py-16 text-center bg-[#f8f9fa] max-w-7xl mx-auto">
+            <section className="py-16 text-center bg-[#f8f9fa]  max-w-3xl mx-auto">
                 <h2 className="text-3xl font-bold text-[#003f5c]">Nosso Time</h2>
                 <p className="text-lg mt-4 max-w-4xl mx-auto">
                     A <strong>PetRide</strong> foi criada por um time apaixonado por inovação e pets.  
                     Conheça os desenvolvedores responsáveis por este projeto:
                 </p>
-
+            </section>
+            <section className="py-16 pt-0 text-center bg-[#f8f9fa] max-w-4xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
                     {[
                         {

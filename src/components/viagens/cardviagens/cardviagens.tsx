@@ -34,7 +34,7 @@ function CardViagem({ viagem }: CardViagensProps) {
                 box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.2);
             }
             .btn-editar {
-                background-color: #b1bf63;
+                background-color: #007399;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -76,9 +76,9 @@ function CardViagem({ viagem }: CardViagensProps) {
                     }).format(new Date(viagem.dataHoraPartida))}</p>
                 </div>
             </div>
-            <div className="flex">
+            <div className="flex justify-around">
                 <Link to={`/editarviagem/${viagem.id}`}
-                     className="w-1/2 text-center py-3 rounded-3xl text-white btn-card btn-editar"
+                     className="w-1/3 text-center py-3 rounded-3xl text-white btn-card btn-editar hover:bg-[#00557f]"
                      onMouseEnter={() => setIsHoveredEditar(true)}
                      onMouseLeave={() => setIsHoveredEditar(false)}
                      >
@@ -86,7 +86,7 @@ function CardViagem({ viagem }: CardViagensProps) {
                 </Link>
 
                 <Link to={`/deletarviagem/${viagem.id}`}
-                    className="w-1/2 text-center py-3 rounded-3xl text-white btn-card btn-deletar"
+                    className="w-1/3 text-center py-3 rounded-3xl text-white btn-card btn-deletar"
                     onMouseEnter={() => setIsHoveredDeletar(true)}
                     onMouseLeave={() => setIsHoveredDeletar(false)}
                     >
