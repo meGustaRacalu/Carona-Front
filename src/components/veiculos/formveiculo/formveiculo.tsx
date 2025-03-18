@@ -84,7 +84,7 @@ function FormVeiculo() {
 
     return (
         <div
-        className="flex flex-col items-center justify-start w-full font-bold relative"
+        className="flex flex-col items-center justify-center w-full font-bold relative h-screen mt-10"
         style={{
             background: "linear-gradient(135deg, #f7fafc, #edf2f7, #e2e8f0, #cbd5e0)",
             backgroundSize: "200% 200%",
@@ -134,7 +134,7 @@ function FormVeiculo() {
                 {id === undefined ? 'Cadastrar Veículo' : 'Editar Veículo'}
             </h1>
             <form
-                className="flex flex-col gap-4 w-1/3 bg-white p-6 rounded-lg shadow-lg"
+                className="flex flex-col gap-4 w-1/3 bg-white p-6 rounded-lg shadow-lg h-90vh"
                 onSubmit={gerarNovoVeiculo}
             >
                 <div className="flex flex-col gap-4">
@@ -175,10 +175,10 @@ function FormVeiculo() {
                         onChange={(e) => atualizarEstado(e)}
                     />
                 </div>
-                <div className="flex justify-around mt-4">
+                <div className="flex justify-around mt-4 text-center">
                     <button
                         type="button"
-                        className="rounded-3xl py-3 px-8 btn-cancelar"
+                        className="rounded-3xl py-3 px-4 btn-cancelar w-2/4"
                         onMouseEnter={() => setIsHoveredCancelar(true)}
                         onMouseLeave={() => setIsHoveredCancelar(false)}
                         onClick={retornar}
@@ -187,7 +187,7 @@ function FormVeiculo() {
                     </button>
                     <button
                         type="submit"
-                        className="rounded-3xl py-3 px-8 btn-submeter"
+                        className="rounded-3xl py-3 px-4 btn-submeter w-2/4"
                         onMouseEnter={() => setIsHoveredSubmeter(true)}
                         onMouseLeave={() => setIsHoveredSubmeter(false)}
                     >
