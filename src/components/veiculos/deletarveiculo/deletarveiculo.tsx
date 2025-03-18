@@ -93,7 +93,7 @@ function DeletarVeiculo() {
                         transition: transform 0.3s ease, box-shadow 0.3s ease;
                     }
                     .btn-cancelar {
-                        background-color: #b1bf63;
+                        background-color: #007399;
                         color: white;
                     }
                     .btn-cancelar:hover {

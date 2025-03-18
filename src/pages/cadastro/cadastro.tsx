@@ -74,20 +74,13 @@ function Cadastro() {
               50% { background-position: 100% 50%; }
               100% { background-position: 0% 50%; }
             }
-            .fundoCadastro {
-              opacity: 0.5;
-              transition: opacity 0.3s ease;
-            }
-            .fundoCadastro:hover {
-              opacity: 1;
-            }
             input {
               height: 48px;
             }
           `}
         </style>
-        <div className="fundoCadastro hidden lg:block transform -scale-x-100" style={{ backgroundImage: "url('https://imgur.com/HVRad2C.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
-        <form className='flex justify-center items-center flex-col w-2/3 gap-3 bg-white p-8 rounded-lg shadow-lg' 
+        <div className="fundoCadastro hidden lg:block -scale-x-100" style={{ backgroundImage: "url('https://imgur.com/HVRad2C.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
+        <form className='flex justify-center items-center flex-col w-2/3 gap-3 bg-white p-8 rounded-lg shadow-lg mt-10' 
           onSubmit={cadastrarNovoUsuario}>
           <h2 className='text-[#00557f] text-4xl font-semibold'>Cadastrar</h2>
           <div className="flex flex-col w-full">
@@ -97,7 +90,7 @@ function Cadastro() {
               id="nome"
               name="nome"
               placeholder="Digite seu nome completo aqui"
-              className="border-2 border-[#b1bf63] rounded-2xl p-2"
+              className="border-2 border-[#003f5c] rounded-2xl p-2"
              value = {usuario.nome}
              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
@@ -109,19 +102,19 @@ function Cadastro() {
               id="usuario"
               name="usuario"
               placeholder="Exemplo: usuario@usuario.com"
-              className="border-2 border-[#b1bf63] rounded-2xl p-2"
+              className="border-2 border-[#003f5c] rounded-2xl p-2"
               value = {usuario.usuario}
              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="foto" className='text-[#00557f]'>Foto</label>
+            <label htmlFor="foto" className='text-[#003f5c]'>Foto</label>
             <input
               type="text"
               id="foto"
               name="foto"
               placeholder="Adicione o link para sua foto de perfil"
-              className="border-2 border-[#b1bf63] rounded-2xl p-2"
+              className="border-2 border-[#003f5c] rounded-2xl p-2"
               value = {usuario.foto}
              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
@@ -132,8 +125,8 @@ function Cadastro() {
               type="password"
               id="senha "
               name="senha"
-              placeholder="Crie uma senha segura (mínimo 8 caracteres)"
-              className="border-2 border-[#b1bf63] rounded-2xl p-2"
+              placeholder="Senha (mínimo 8 digitos)"
+              className="border-2 border-[#003f5c] rounded-2xl p-2"
               autoComplete='true'
               value = {usuario.senha}
              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -146,7 +139,7 @@ function Cadastro() {
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirme sua senha"
-              className="border-2 border-[#b1bf63] rounded-2xl p-2"
+              className="border-2 border-[#003f5c] rounded-2xl p-2"
               value={confirmaSenha}
               autoComplete='true'
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
@@ -158,7 +151,7 @@ function Cadastro() {
             </Link>
             <button 
                 type='submit'
-                className='w-2/5 rounded-3xl text-center text-white bg-[#00557f] hover:bg-[#b1bf63] py-3 px-8 flex justify-center' 
+                className='w-2/5 rounded-3xl text-center text-white bg-[#007399] hover:bg-[#00557f] py-3 px-8 flex justify-center' 
                 >
                   {isLoading ? <RotatingLines
                     strokeColor="white"

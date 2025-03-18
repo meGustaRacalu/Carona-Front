@@ -84,78 +84,81 @@ function Login() {
     />
 </div>
 
-                <form
-    className="flex justify-center items-center flex-col w-full max-w-md gap-4 
-               bg-white p-8 rounded-lg shadow-lg mt-36 md:w-1/3 h-[90vh] mb-10"
-    onSubmit={login}
->
-                    <h2 className="text-[#00557f] text-4xl font-semibold">Entrar</h2>
-                    <div className="flex flex-col w-full">
-                        <label htmlFor="usuario" className="text-[#00557f]">
-                            Usuário (e-mail)
-                        </label>
-                        <input
-                            type="email"
-                            id="usuario"
-                            name="usuario"
-                            placeholder="Digite seu e-mail"
-                            className="border-2 border-[#b1bf63] rounded-2xl p-2"
-                            value={usuarioLogin.usuario}
-                            autoComplete='true'
-                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                atualizarEstado(e)
-                            }
-                        />
-                    </div>
-                    <div className="flex flex-col w-full">
-                        <label htmlFor="senha" className="text-[#00557f]">
-                            Senha (mínimo 8 caracteres)
-                        </label>
-                        <input
-                            type="password"
-                            id="senha"
-                            name="senha"
-                            placeholder="Digite sua senha"
-                            className="border-2 border-[#b1bf63] rounded-2xl p-2"
-                            minLength={8}
-                            value={usuarioLogin.senha}
-                            autoComplete='true'
-                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                atualizarEstado(e)
-                            }
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="rounded-3xl bg-[#00557f] text-white py-2 px-6 mt-4
-                                   hover:bg-[#b1bf63] hover:shadow-[0_0_15px_1px] hover:shadow-[#00557f]
-                                   transition-transform transform active:scale-105 duration-300"
-                    >
-                        {isLoading ? (
-                            <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
-                                visible={true}
-                            />
-                        ) : (
-                            <span>Entrar</span>
-                        )}
-                    </button>
-                    <hr className="border-[#b1bf63] w-full" />
-                    <p>
-                        Ainda não tem uma conta?{' '}
-                        <Link
-                            to="/cadastro"
-                            className="text-[#00557f] hover:underline"
-                        >
-                            Cadastre-se
-                        </Link>
-                    </p>
-                </form>
+        <form
+            className="flex justify-center items-center flex-col w-full max-w-md gap-4 
+                    bg-white p-8 rounded-lg shadow-lg mt-25 md:w-1/3 mb-10"
+            onSubmit={login}
+        >
+        <img 
+        className="h-45 border-black"
+        src='https://i.imgur.com/HvOEp1S.jpeg'></img>
+            <h2 className="text-[#00557f] text-4xl font-semibold">Entrar</h2>
+            <div className="flex flex-col w-full">
+                <label htmlFor="usuario" className="text-[#00557f]">
+                    Usuário (e-mail)
+                </label>
+                <input
+                    type="email"
+                    id="usuario"
+                    name="usuario"
+                    placeholder="Digite seu e-mail"
+                    className="border-2 border-[#003f5c] rounded-2xl p-2"
+                    value={usuarioLogin.usuario}
+                    autoComplete='true'
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        atualizarEstado(e)
+                    }
+                />
             </div>
-        </>
+            <div className="flex flex-col w-full">
+                <label htmlFor="senha" className="text-[#00557f]">
+                    Senha (mínimo 8 caracteres)
+                </label>
+                <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                    className="border-2 border-[#003f5c] rounded-2xl p-2"
+                    minLength={8}
+                    value={usuarioLogin.senha}
+                    autoComplete='true'
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        atualizarEstado(e)
+                    }
+                />
+            </div>
+            <button
+                type="submit"
+                className="rounded-3xl bg-[#007399] hover:bg-[#00557f] text-white py-2 px-6 mt-4
+                            hover:shadow-[0_0_15px_1px] hover:shadow-[#00557f]
+                            transition-transform transform active:scale-105 duration-300"
+            >
+                {isLoading ? (
+                    <RotatingLines
+                        strokeColor="white"
+                        strokeWidth="5"
+                        animationDuration="0.75"
+                        width="24"
+                        visible={true}
+                    />
+                ) : (
+                    <span>Entrar</span>
+                )}
+            </button>
+            <hr className="border-[#003f5c] w-full" />
+            <p>
+                Ainda não tem uma conta?{' '}
+                <Link
+                    to="/cadastro"
+                    className="text-[#00557f] hover:underline"
+                >
+                    Cadastre-se
+                </Link>
+            </p>
+        </form>
+    </div>
+    </>
     );
 }
 

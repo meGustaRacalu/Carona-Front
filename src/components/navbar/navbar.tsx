@@ -84,9 +84,18 @@ function Navbar() {
                     {
                     (location.pathname === "/home" || location.pathname === "/") 
                     && !usuario.token &&
+                    !menuAberto &&
                     <>
-                    <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</button>
-                    <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</button>
+                    <button onClick={() => {document.getElementById('transicao desktop')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</button>
+                    <button onClick={() => {document.getElementById('transicao desktop')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</button>
+                    </>
+                    ||
+                    (location.pathname === "/home" || location.pathname === "/") 
+                    && !usuario.token &&
+                    menuAberto &&
+                    <>
+                    <button onClick={() => {document.getElementById('transicao mobile')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Viagens</button>
+                    <button onClick={() => {document.getElementById('transicao mobile')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</button>
                     </>
                     }
                     <Link to="/sobre" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Sobre</Link>
@@ -125,7 +134,7 @@ function Navbar() {
                         onClick={toggleMenuPerfil}
                         src={usuario.foto}
                         alt="Foto do usuário"
-                        className="w-10 h-10 rounded-full cursor-pointer"
+                        className="hidden md:block w-10 h-10 rounded-full cursor-pointer"
                         />
                         </div>
                         ||
@@ -134,7 +143,7 @@ function Navbar() {
                         onClick={toggleMenuPerfil}
                         src={usuario.foto}
                         alt="Foto do usuário"
-                        className="w-10 h-10 rounded-full cursor-pointer"
+                        className="hidden md:block w-10 h-10 rounded-full cursor-pointer"
                         />
                 }
 

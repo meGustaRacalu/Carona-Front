@@ -101,7 +101,7 @@ function FormVeiculo() {
                     }
                     input {
                         height: 48px;
-                        border: 2px solid #b1bf63;
+                        border: 2px solid #007399;
                         border-radius: 12px;
                         padding: 0 10px;
                     }
@@ -114,7 +114,7 @@ function FormVeiculo() {
                         color: white;
                     }
                     .btn-submeter {
-                        background-color: #b1bf63;
+                        background-color: #007399;
                         color: white;
                     }
                     .btn-submeter:hover {
@@ -130,7 +130,7 @@ function FormVeiculo() {
                     }
                 `}
             </style>
-            <h1 className="text-4xl text-black font-semibold mb-6">
+            <h1 className="text-4xl text-[#00557f] font-semibold mb-6">
                 {id === undefined ? 'Cadastrar Veículo' : 'Editar Veículo'}
             </h1>
             <form
@@ -143,7 +143,7 @@ function FormVeiculo() {
                         type="text"
                         id="modelo"
                         name="modelo"
-                        placeholder="Diga o modelo do seu veículo"
+                        placeholder="Digite o modelo do seu veículo"
                         value={veiculo.modelo}
                         onChange={(e) => atualizarEstado(e)}
                     />
@@ -152,7 +152,7 @@ function FormVeiculo() {
                         type="text"
                         id="marca"
                         name="marca"
-                        placeholder="Diga a marca do seu veículo"
+                        placeholder="Digite a marca do seu veículo"
                         value={veiculo.marca}
                         onChange={(e) => atualizarEstado(e)}
                     />
@@ -161,7 +161,7 @@ function FormVeiculo() {
                         type="text"
                         id="placa"
                         name="placa"
-                        placeholder="Diga a placa do seu veículo"
+                        placeholder="Digite a placa do seu veículo (7 Digitos Ex: HWE7748)"
                         value={veiculo.placa}
                         onChange={(e) => atualizarEstado(e)}
                     />
@@ -178,7 +178,7 @@ function FormVeiculo() {
                 <div className="flex justify-around mt-4 text-center">
                     <button
                         type="button"
-                        className="rounded-3xl py-3 px-4 btn-cancelar w-2/4"
+                        className="rounded-3xl py-3 px-4 btn-cancelar w-2/5"
                         onMouseEnter={() => setIsHoveredCancelar(true)}
                         onMouseLeave={() => setIsHoveredCancelar(false)}
                         onClick={retornar}
@@ -187,7 +187,7 @@ function FormVeiculo() {
                     </button>
                     <button
                         type="submit"
-                        className="rounded-3xl py-3 px-4 btn-submeter w-2/4"
+                        className="rounded-3xl py-3 px-4 btn-submeter w-2/5"
                         onMouseEnter={() => setIsHoveredSubmeter(true)}
                         onMouseLeave={() => setIsHoveredSubmeter(false)}
                     >
