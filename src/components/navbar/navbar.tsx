@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useContext, useState, useEffect, useRef, ReactNode } from "react";
+=======
+import { useContext, useState, useEffect, useRef } from "react";
+>>>>>>> footer
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/authcontext";
 import { ToastAlerta } from "../../utils/toastalerta";
@@ -26,6 +30,7 @@ function Navbar() {
         setMenuAberto(false);
     }
 
+<<<<<<< HEAD
     function handleLogoClick(event: any) {
         event.preventDefault();
         if (location.pathname === "/home") {
@@ -33,6 +38,18 @@ function Navbar() {
         } else {
             navigate("/home");
         }
+=======
+    function handleScrollTo(sectionId: string) {
+        if (!usuario.token) {
+            navigate(`/home#${sectionId}`);
+            setTimeout(() => {
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+            }, 300);
+        } else {
+            navigate(`/${sectionId.toLowerCase()}`);
+        }
+        closeMenu();
+>>>>>>> footer
     }
 
     useEffect(() => {
@@ -101,7 +118,13 @@ function Navbar() {
                 </a>
 
                 <div className="hidden md:flex gap-6 items-center">
+<<<<<<< HEAD
                    { menu }
+=======
+                    <Link to="/sobre" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>SOBRE</Link>
+                    <button onClick={() => handleScrollTo("quero-uma-viagem")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
+                    <button onClick={() => handleScrollTo("quero-ser-motorista")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
+>>>>>>> footer
                 </div>
 
                 {!usuario.token ? (
@@ -127,8 +150,15 @@ function Navbar() {
 
                 {menuAberto && (
                     <div ref={menuRef} className="absolute top-16 left-0 w-full bg-[#003f5cd2] bg-opacity-95 flex flex-col items-center py-4 md:hidden z-50">
+<<<<<<< HEAD
 
                         { menu }
+=======
+                        <Link to="/sobre" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>SOBRE</Link>
+                        <button onClick={() => handleScrollTo("quero-ser-motorista")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">MOTORISTA</button>
+                        <button onClick={() => handleScrollTo("quero-ser-motorista")} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">VIAGENS</button>
+
+>>>>>>> footer
 
                         {!usuario.token ? (
                             <>
@@ -137,8 +167,13 @@ function Navbar() {
                             </>
                         ) : (
                             <>
+<<<<<<< HEAD
                                 <Link to="/perfil" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>Perfil</Link>
                                 <button onClick={logout} className="py-2 hover:text-yellow-300 text-lg font-medium">Sair</button>
+=======
+                                <Link to="/perfil" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>PERFIL</Link>
+                                <button onClick={logout} className="py-2 hover:text-yellow-300 text-lg font-medium">SAIR</button>
+>>>>>>> footer
                             </>
                         )}
                     </div>

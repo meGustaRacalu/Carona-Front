@@ -57,7 +57,11 @@ function Sobre() {
                             nome: "Carla Jemaitis",
                             github: "https://github.com/carlajemaitis",
                             linkedin: "https://www.linkedin.com/in/carlajemaitis/",
+<<<<<<< HEAD
                             foto: "https://imgur.com/pJt7XEV.png",
+=======
+                            foto: "https://avatars.githubusercontent.com/u/170134839?v=4",
+>>>>>>> footer
                         },
                         {
                             nome: "Lucas Unzaga",
