@@ -49,7 +49,7 @@ function Login() {
                         }
                     `}
                 </style>
-                <div className="hidden md:block" 
+    <div className="focinho hidden md:block" 
      style={{
          position: "absolute",
          top: "10%",
@@ -60,13 +60,14 @@ function Login() {
          background: "rgba(255, 255, 255, 0.1)"
      }}>
     <img
+        id="logo"
         src="https://imgur.com/cHIAgds.png"
         alt="Decorative"
         className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto decorative-img"
     />
-</div>
+    </div>
 
-<div className="hidden md:block"
+<div className="focinho hidden md:block"
      style={{
          position: "absolute",
          bottom: "15%",
@@ -82,10 +83,10 @@ function Login() {
         className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 w-64 h-auto decorative-img"
     />
 </div>
-               
+
                 <form
     className="flex justify-center items-center flex-col w-full max-w-md gap-4 
-               bg-white p-8 rounded-lg shadow-lg mt-36 md:w-1/3"
+               bg-white p-8 rounded-lg shadow-lg mt-36 md:w-1/3 h-[90vh] mb-10"
     onSubmit={login}
 >
                     <h2 className="text-[#00557f] text-4xl font-semibold">Entrar</h2>
@@ -100,6 +101,7 @@ function Login() {
                             placeholder="Digite seu e-mail"
                             className="border-2 border-[#b1bf63] rounded-2xl p-2"
                             value={usuarioLogin.usuario}
+                            autoComplete='true'
                             onChange={(e: ChangeEvent<HTMLInputElement>) =>
                                 atualizarEstado(e)
                             }
@@ -117,6 +119,7 @@ function Login() {
                             className="border-2 border-[#b1bf63] rounded-2xl p-2"
                             minLength={8}
                             value={usuarioLogin.senha}
+                            autoComplete='true'
                             onChange={(e: ChangeEvent<HTMLInputElement>) =>
                                 atualizarEstado(e)
                             }

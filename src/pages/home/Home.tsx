@@ -22,15 +22,25 @@ function Home() {
     return (
         <div>
             <section
-                className="relative flex flex-col items-center justify-center text-center h-[60vh] sm:h-[90vh] bg-center px-6" 
+                id="image_desktop"
+                className="relative w-100vw h-[60vh] lg:h-[100vh] brightness-90  " 
                 style={{
-                    backgroundImage: "url('https://imgur.com/vTZZMmt.png')", 
-                    backgroundSize: 'cover',
+                    backgroundImage: "url('https://i.imgur.com/MQ0oha3.jpeg')", 
+                    backgroundSize: '100% 100%',
                     backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
+                    backgroundRepeat: 'no-repeat',
                 }}> 
             </section>
-
+            <section
+                id="image_mobile"
+                className="relative w-100vw h-[60vh] sm:h-[60vh] brightness-90  " 
+                style={{
+                    backgroundImage: "url('https://i.imgur.com/9e5JYQD.jpeg')", 
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                }}> 
+            </section>
             <section id="transicao" className="flex flex-col items-center justify-center text-center py-16 px-6 bg-white text-gray-900">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">O que é a PetRide?</h2>
                 <p className="text-lg max-w-3xl mx-auto leading-relaxed text-justify">
@@ -51,7 +61,7 @@ function Home() {
                     </div>
                     
                     <div  className="p-8 border rounded-lg shadow-md flex flex-col items-center text-center transform transition-transform hover:scale-105">
-                        <div className="text-5xl">👨‍✈️</div>
+                        <div className="text-5xl">👨‍✈</div>
                         <h3 className="text-2xl font-semibold mt-4">Quero ser motorista</h3>
                         <p className="text-gray-700 mt-2">
                             <span className="cursor-pointer text-[#003f5c] font-bold" onClick={() => navigate('/cadastro')}>Seja um motorista parceiro</span>, transforme cada viagem em um ato de amor e garanta sua renda extra!
@@ -109,4 +119,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Home;
