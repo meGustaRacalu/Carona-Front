@@ -18,14 +18,14 @@ function Perfil() {
     return (
         <div className='container mx-auto m-4 rounded-2xl overflow-hidden'>
             <img 
-                className='w-full h-72 object-cover border-b-8 border-white' 
+                className='rounded-lg w-full mt-20 h-72 object-cover border-b-8 border-white' 
                 style={{ height: "300px" }} 
                 src="https://imgur.com/yJpjaeL.png" 
                 alt="Capa do Perfil" 
             />
 
             <img 
-                className='rounded-full w-56 mx-auto mt-[-2rem] top-14 border-8 border-white relative z-10' 
+                className='rounded-full w-56 mx-auto mt-[-14rem] top-14 border-8 border-white relative z-10' 
                 src={usuario.foto} 
                 alt={`Foto de perfil de ${usuario.nome}`} 
             />
