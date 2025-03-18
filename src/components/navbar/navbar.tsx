@@ -67,13 +67,14 @@ function Navbar() {
         <>
                      <Link to="/sobre" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Sobre</Link>
                     {
-                    (location.pathname != "/home" && location.pathname != "/")
-                    &&
+                    usuario.token && 
                     <>
                     <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
                     <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
                     </>
-                    || usuario.token && 
+                    ||
+                    (location.pathname != "/home" && location.pathname != "/")
+                    &&
                     <>
                     <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
                     <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
