@@ -1,10 +1,11 @@
-import { GithubLogo } from '@phosphor-icons/react';
+import { GithubLogo } from '@phosphor-icons/react'; 
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Footer() {
     const location = useLocation();
     const navigate = useNavigate();
+    const [scrollTriggered, setScrollTriggered] = useState(false);
 
     const handleNavigation = (path: string) => {
         if (location.pathname !== path) {
@@ -17,22 +18,31 @@ function Footer() {
             scrollToSection();
         } else {
             navigate("/home");
-            setTimeout(scrollToSection, 500);
+            setScrollTriggered(true);
         }
     };
 
     const scrollToSection = () => {
-        const section = document.getElementById("como-funciona");
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
-        }
+        setTimeout(() => {
+            const section = document.getElementById("como-funciona");
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 300);
     };
 
     useEffect(() => {
-        if (location.hash === "#como-funciona") {
+        if (scrollTriggered && location.pathname === "/home") {
             scrollToSection();
+            setScrollTriggered(false);
         }
-    }, [location]);
+    }, [location.pathname, scrollTriggered]);
+
+    useEffect(() => {
+        if (location.pathname !== "/home") {
+            window.scrollTo(0, 0);
+        }
+    }, [location.pathname]);
 
     return (
         <div className="bg-[#003f5c] text-white py-4">
