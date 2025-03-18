@@ -106,13 +106,13 @@ function Navbar() {
 
                 {!usuario.token ? (
                     <div className="hidden md:flex gap-4 items-center">
-                        <Link to="/login" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>ENTRAR</Link>
-                        <Link to="/cadastro" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>CRIAR CONTA</Link>
+                        <Link to="/login" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>Entrar</Link>
+                        <Link to="/cadastro" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>Criar Conta</Link>
                     </div>
                 ) : (
                     <div className="hidden md:flex gap-4 items-center">
-                        <Link to="/perfil" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>PERFIL</Link>
-                        <button onClick={logout} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">SAIR</button>
+                        <Link to="/perfil" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>Perfil</Link>
+                        <button onClick={logout} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">Sair</button>
                         <img
                             src={usuario.foto}
                             alt="Foto do usuário"
@@ -132,13 +132,13 @@ function Navbar() {
 
                         {!usuario.token ? (
                             <>
-                                <Link to="/login" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>ENTRAR</Link>
-                                <Link to="/cadastro" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>CRIAR CONTA</Link>
+                                <Link to="/login" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>Entrar</Link>
+                                <Link to="/cadastro" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>Criar Conta</Link>
                             </>
                         ) : (
                             <>
-                                <Link to="/perfil" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>PERFIL</Link>
-                                <button onClick={logout} className="py-2 hover:text-yellow-300 text-lg font-medium">SAIR</button>
+                                <Link to="/perfil" className="py-2 hover:text-yellow-300 text-lg font-medium" onClick={closeMenu}>Perfil</Link>
+                                <button onClick={logout} className="py-2 hover:text-yellow-300 text-lg font-medium">Sair</button>
                             </>
                         )}
                     </div>
