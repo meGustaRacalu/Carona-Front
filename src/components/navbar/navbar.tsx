@@ -9,7 +9,12 @@ function Navbar() {
     const location = useLocation();
     const { usuario, handleLogout } = useContext(AuthContext);
     const [menuAberto, setMenuAberto] = useState(false);
+    const [menuPerfil, setMenuPerfilAberto] = useState(false);
     const menuRef = useRef<HTMLDivElement | null>(null);
+
+    function toggleMenuPerfil(){
+        setMenuPerfilAberto(!menuPerfil);
+    }
 
     function toggleMenu() {
         setMenuAberto(!menuAberto);
@@ -104,22 +109,34 @@ function Navbar() {
                    { menu }
                 </div>
 
-                {!usuario.token ? (
+          
+                {!usuario.token &&
                     <div className="hidden md:flex gap-4 items-center">
                         <Link to="/login" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>Entrar</Link>
                         <Link to="/cadastro" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>Criar Conta</Link>
                     </div>
-                ) : (
-                    <div className="hidden md:flex gap-4 items-center">
+                        ||
+                        usuario.token &&
+                        menuPerfil &&
+                        <div className="hidden md:flex gap-4 items-center">
                         <Link to="/perfil" className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300" onClick={closeMenu}>Perfil</Link>
                         <button onClick={logout} className="text-white hover:text-yellow-300 text-lg font-medium transition duration-300">Sair</button>
                         <img
-                            src={usuario.foto}
-                            alt="Foto do usuário"
-                            className="w-10 h-10 rounded-full cursor-pointer"
+                        onClick={toggleMenuPerfil}
+                        src={usuario.foto}
+                        alt="Foto do usuário"
+                        className="w-10 h-10 rounded-full cursor-pointer"
                         />
-                    </div>
-                )}
+                        </div>
+                        ||
+                        usuario.token &&
+                        <img
+                        onClick={toggleMenuPerfil}
+                        src={usuario.foto}
+                        alt="Foto do usuário"
+                        className="w-10 h-10 rounded-full cursor-pointer"
+                        />
+                }
 
                 <button onClick={toggleMenu} className="md:hidden text-white text-3xl">
                     {menuAberto ? <HiX /> : <HiMenu />}

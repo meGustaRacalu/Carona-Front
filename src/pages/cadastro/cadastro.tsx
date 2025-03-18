@@ -44,7 +44,7 @@ function Cadastro() {
 
     if(confirmaSenha === usuario.senha && usuario.senha.length >= 8){
       setIsLoading(true);
-
+    
       try{
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
         ToastAlerta('Usuário cadastrado com sucesso!', 'sucesso');
