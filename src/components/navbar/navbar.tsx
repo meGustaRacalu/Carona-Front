@@ -65,19 +65,18 @@ function Navbar() {
 
     let menu : ReactNode = 
         <>
-                     <Link to="/sobre" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Sobre</Link>
                     {
-                    usuario.token && 
+                        usuario.token && 
                     <>
                     <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
-                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
+                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
                     </>
                     ||
                     (location.pathname != "/home" && location.pathname != "/")
                     &&
                     <>
                     <Link to="/viagens" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Viagens</Link>
-                    <Link to='/cadastrarveiculo' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
+                    <Link to='/veiculos' className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300"onClick={closeMenu}>Motorista</Link>
                     </>
                     }
                     {
@@ -88,8 +87,8 @@ function Navbar() {
                     <button onClick={() => {document.getElementById('transicao viagem/motorista')?.scrollIntoView({ behavior: 'smooth' }); closeMenu();}} className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300">Motorista</button>
                     </>
                     }
+                    <Link to="/sobre" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Sobre</Link>
                     
-                    <Link to="/veiculos" className="text-white hover:text-yellow-300 px-1 py-5 rounded-md text-xl font-medium transition duration-300" onClick={closeMenu}>Veiculos</Link>
             </>
         
     
