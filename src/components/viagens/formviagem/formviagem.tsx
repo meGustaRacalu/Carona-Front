@@ -5,6 +5,7 @@ import Viagem from "../../../models/viagem";
 import Veiculo from "../../../models/veiculo";
 import { buscar, atualizar, cadastrar } from "../../../services/service";
 import { ToastAlerta } from "../../../utils/toastalerta";
+import Redirect from "../../redirect/redirect";
 
 
 function FormViagem() {
@@ -23,6 +24,9 @@ function FormViagem() {
     const token = usuario.token
 
 
+    function redirectViagens(){
+        navigate("/redirect" + "/viagens");
+    }
 
     async function buscarViagemPorId(id: string) {
         try {
@@ -248,6 +252,7 @@ function FormViagem() {
                         <div className="flex gap-4 mt-4">
                             <button
                                 type="button"
+                                onClick={redirectViagens}
                                 className="w-1/2 bg-red-500 hover:bg-red-700 text-white py-2 rounded font-bold transition duration-300"
                             >
                                 Cancelar

@@ -46,7 +46,7 @@ function Home() {
                 <p className="text-lg max-w-3xl mx-auto leading-relaxed text-justify">
                     A PetRide é um aplicativo feito para <strong>tutores de pets,</strong> e também para <strong>motoristas</strong> que desejam ter uma renda extra, oferecendo viagens seguras e confortáveis para os animais.  
                     <br />Nosso serviço conecta passageiros a motoristas preparados para transportar pets com carinho e responsabilidade.  
-                    Se você precisa de uma carona com o seu pet ou quer se tornar um motorista <p id="transicao viagem/motorista">parceiro, a <strong>PetRide</strong> é a escolha ideal para você!</p>
+                    Se você precisa de uma carona com o seu pet ou quer se tornar um motorista <span id="transicao viagem/motorista">parceiro, a <strong>PetRide</strong> é a escolha ideal para você!</span>
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 w-full max-w-5xl">
                     <div className="p-8 border rounded-lg shadow-md flex flex-col items-center text-center transform transition-transform hover:scale-105">

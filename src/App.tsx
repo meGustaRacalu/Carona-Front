@@ -19,6 +19,7 @@ import Sobre from './pages/sobre/sobre';
 import FAQ from './pages/FAQ/FAQ';
 import TermosDeUso from './pages/termos/termos';
 import Privacidade from './pages/privacidade/privacidade';
+import Redirect from './components/redirect/redirect';
 
 function App() {
     return (
@@ -46,6 +47,7 @@ function App() {
                             <Route path="/faq" element={<FAQ />} />
                             <Route path="/termos" element={<TermosDeUso />} />
                             <Route path="/privacidade" element={<Privacidade />} />
+                            <Route path="/redirect/:link" element={<Redirect />} />
                         </Routes>
                     </div>
                     <Footer />

@@ -8,16 +8,14 @@ import ListaViagens from '../listaviagens/listaviagens';
 function ModalViagem() {
     return (
         <>
-        <div className="container mx-auto p-4">
-            <div className="flex justify-end items-center mb-4">
+        <div className="container p-4">
+            <div className="flex justify-end items-center h-40 right">
             <Popup
                 trigger={
-                        <button 
-                            className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800 right'>
+                        <button className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800 right'>
                             Nova Viagem
                         </button>
-                
-            }
+                }
                 modal
             >
                 <FormViagem />
