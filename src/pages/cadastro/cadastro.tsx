@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Usuario from '../../models/usuario';
 import { cadastrarUsuario } from '../../services/service';
 import './cadastro.css';
@@ -24,13 +24,9 @@ function Cadastro() {
 
   useEffect(() => {
     if (usuario.id !== 0){
-      retornar();
+      navigate('/login');
     }
   }, [usuario]);
-
-  function retornar(){
-    navigate('/login');
-  }
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>){
     setUsuario({
@@ -138,6 +134,7 @@ function Cadastro() {
               name="senha"
               placeholder="Crie uma senha segura (mínimo 8 caracteres)"
               className="border-2 border-[#b1bf63] rounded-2xl p-2"
+              autoComplete='true'
               value = {usuario.senha}
              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
@@ -151,16 +148,17 @@ function Cadastro() {
               placeholder="Confirme sua senha"
               className="border-2 border-[#b1bf63] rounded-2xl p-2"
               value={confirmaSenha}
+              autoComplete='true'
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
             />
           </div>
-          <div className="flex justify-around w-full gap-6 mt-4">
-            <button className='rounded-3xl text-white bg-red-400 hover:bg-red-700 py-3 px-8' onClick={retornar}>
+          <div className="flex justify-around w-full gap-6 mt-4 text-center">
+            <Link to="/login" className='w-2/5 text-center  rounded-3xl text-white bg-red-400 hover:bg-red-700 py-3 px-8 flex justify-center'>
               Cancelar
-            </button>
+            </Link>
             <button 
                 type='submit'
-                className='rounded-3xl text-white bg-[#00557f] hover:bg-[#b1bf63] py-3 px-8 flex justify-center' 
+                className='w-2/5 rounded-3xl text-center text-white bg-[#00557f] hover:bg-[#b1bf63] py-3 px-8 flex justify-center' 
                 >
                   {isLoading ? <RotatingLines
                     strokeColor="white"
