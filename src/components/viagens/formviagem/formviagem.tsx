@@ -162,7 +162,7 @@ function FormViagem() {
 
     return (
         <>
-            <div className="flex flex-col items-center justify-center bg-gray-100 h-screen mt-10" >
+            <div className="flex flex-col items-center justify-center bg-gray-100" >
                 <div className="border-slate-900 border rounded-lg overflow-hidden shadow-lg bg-white w-screen max-w-2xl h-80vh">
                     <div className="flex items-center justify-between bg-[#00557f] py-4 px-6">
                         <h3 className="text-xl font-bold text-white uppercase">
