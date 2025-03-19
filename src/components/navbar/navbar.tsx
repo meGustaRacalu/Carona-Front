@@ -152,7 +152,7 @@ function Navbar() {
                 </button>
 
                 {menuAberto && (
-                    <div ref={menuRef} className="absolute top-16 left-0 w-full bg-[#003f5cd2] bg-opacity-95 flex flex-col items-center py-4 md:hidden z-50">
+                    <div ref={menuRef} className="absolute top-16 right-0 w-40 bg-[#003f5cd2] bg-opacity-95 flex flex-col items-center py-4 md:hidden z-50">
 
                         { menu }
 
