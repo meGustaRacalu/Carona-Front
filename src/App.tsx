@@ -34,7 +34,7 @@ function App() {
                             <Route path="/home" element={<Home />} />
                             <Route path="/cadastro" element={<Cadastro />} />
                             <Route path="/login" element={<Login />} />
-                            <Route path="/veiculos" element={<ModalVeiculo />} />
+                            <Route path="/veiculos" element={<FormVeiculo />} />
                             <Route path="/cadastrarveiculo" element={<ModalVeiculo />} />
                             <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
                             <Route path="/deletarveiculo/:id" element={<DeletarVeiculo />} />
